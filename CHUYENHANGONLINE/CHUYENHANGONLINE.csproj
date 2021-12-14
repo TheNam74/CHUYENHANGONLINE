@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Shipper\" />
+    <Folder Include="Admin\" />
+    <Folder Include="Customer\" />
+    <Folder Include="Staff\" />
+    <Folder Include="Provider\" />
+  </ItemGroup>
+
+</Project>
