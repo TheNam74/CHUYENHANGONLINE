@@ -36,7 +36,6 @@ namespace CHUYENHANGONLINE
             sqlCmd.CommandText = query;
             sqlCmd.Connection = MainWindow.sqlCon;
             SqlDataReader reader = sqlCmd.ExecuteReader();
-            string actor;
             if (reader.Read())
             {
                 MainWindow.Actor = reader.GetString(4);

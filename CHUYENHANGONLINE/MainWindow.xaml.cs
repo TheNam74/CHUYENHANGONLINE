@@ -40,6 +40,10 @@ namespace CHUYENHANGONLINE
                     sqlCon.Open();
                     var loginWindow = new LoginWindow();
                     loginWindow.ShowDialog();
+                    if (loginWindow.DialogResult != true)
+                    {
+                       this.Close();//Chưa đăng nhập thành công
+                    }
                 }
             }
             catch (Exception e)

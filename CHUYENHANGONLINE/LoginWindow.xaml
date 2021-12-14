@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CHUYENHANGONLINE"
         mc:Ignorable="d"
-        Title="LoginWindow" Height="300" Width="500">
+        Title="LoginWindow" Height="300" Width="500"
+        ResizeMode="NoResize">
     <Grid>
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
             <StackPanel  Orientation="Horizontal">
