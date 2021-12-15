@@ -20,9 +20,15 @@ namespace CHUYENHANGONLINE.Staff
     /// </summary>
     public partial class StaffHomePageUC : UserControl
     {
+        private Staff _staff = (MainWindow.User as Staff);
         public StaffHomePageUC()
         {
             InitializeComponent();
+        }
+
+        private void StaffHomePageUC_OnLoaded(object sender, RoutedEventArgs e)
+        {
+            HelloLabel.Content = $"Xin chào {_staff.Name}";
         }
     }
 }
