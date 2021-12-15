@@ -13,6 +13,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Microsoft.Win32;
 
 namespace CHUYENHANGONLINE
 {
@@ -47,6 +48,38 @@ namespace CHUYENHANGONLINE
             {
                 reader.Close();
             }
+        }
+
+        private void Selector_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            string actor = (string) (ActorComboBox.SelectedItem as ComboBoxItem).Content;
+            UserControl RegisterUC;
+            switch (actor)
+            {
+                case "Khách hàng":
+                    RegisterUC = new Customer.CustomerRegisterUC();
+                    RegisterContentControl.Content= RegisterUC;
+                    this.Height = 300 + RegisterUC.Height;
+                    break;
+                case "Tài xế":
+                    RegisterUC = new Shipper.ShipperRegisterUC();
+                    RegisterContentControl.Content = RegisterUC;
+                    this.Height = 300 + RegisterUC.Height;
+                    break;
+                case "Đối tác":
+                    RegisterUC = new Provider.ProviderRegisterUC();
+                    RegisterContentControl.Content = RegisterUC;
+                    this.Height = 300 + RegisterUC.Height;
+                    break;
+
+            }
+
+            
+
+
+
+
+
         }
     }
 }

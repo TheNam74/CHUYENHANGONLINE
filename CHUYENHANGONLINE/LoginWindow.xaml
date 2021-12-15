@@ -5,19 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CHUYENHANGONLINE"
         mc:Ignorable="d"
-        Title="LoginWindow" Height="300" Width="500"
+        Title="Đăng nhập" Height="263" Width="500"
         ResizeMode="NoResize">
-    <Grid>
-        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
-            <StackPanel  Orientation="Horizontal">
-                <Label>Username:</Label>
-                <TextBox Name="UsernameTextBox" Width="100"></TextBox>
-            </StackPanel>
-            <StackPanel  Orientation="Horizontal">
-                <Label>Password: </Label>
-                <PasswordBox x:Name="PasswordBox" Width="100" Margin="4,0,0,0"/>
-            </StackPanel>
-            <Button Margin="0,20,0,0" Click="ButtonBase_OnClick" IsDefault="True">Login</Button>
-        </StackPanel>
-    </Grid>
+    <Canvas Margin="0,0,0,-6">
+        <Label Canvas.Left="124" Canvas.Top="29">Tên đăng nhập:</Label>
+        <TextBox Name="UsernameTextBox" Width="100" Canvas.Left="233" Canvas.Top="28"></TextBox>
+        <Label Canvas.Left="153" Canvas.Top="77">Mật khẩu:</Label>
+        <PasswordBox x:Name="PasswordBox" Width="100" Canvas.Left="233" Canvas.Top="69"/>
+        <Button Margin="0,20,0,0" Click="ButtonBase_OnClick" IsDefault="True" Canvas.Left="216" Canvas.Top="110">Đăng nhập</Button>
+        <Separator Canvas.Left="0" Canvas.Top="180" VerticalAlignment="Stretch" Height="5" Width="500"/>
+        <Label Canvas.Left="30" Canvas.Top="192" FontSize="15">Đăng ký</Label>
+        <ComboBox Name="ActorComboBox" Canvas.Left="111" Canvas.Top="193"  SelectionChanged="Selector_OnSelectionChanged">
+            <ComboBoxItem>Khách hàng</ComboBoxItem>
+            <ComboBoxItem>Đối tác</ComboBoxItem>
+            <ComboBoxItem>Tài xế</ComboBoxItem>
+        </ComboBox>
+        <ContentControl Name="RegisterContentControl"  Canvas.Left="10" Canvas.Top="241"></ContentControl>
+    </Canvas>
 </Window>
