@@ -44,7 +44,7 @@ namespace CHUYENHANGONLINE
                     {
                        this.Close();//Chưa đăng nhập thành công
                     }
-                }
+                }   
             }
             catch (Exception e)
             {
