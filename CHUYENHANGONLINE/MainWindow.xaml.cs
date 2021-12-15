@@ -27,6 +27,7 @@ namespace CHUYENHANGONLINE
             @"Data Source=112.78.2.94;Initial Catalog=webt2289_QL_CHUYENHANGONLINE;Persist Security Info=True;User ID=webt2289_tung;Password=zg4B7*6x;";
         public static SqlConnection sqlCon = null; //cho tất cả window khác xài ké
         public static string Actor;
+        public static IUser User;
         public MainWindow()
         {
             

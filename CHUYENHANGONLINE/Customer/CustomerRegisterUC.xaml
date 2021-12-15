@@ -7,13 +7,13 @@
              mc:Ignorable="d" d:DesignWidth="400" Background="WhiteSmoke" Height="195">
     <Canvas>
         <Label  Canvas.Left="16" Canvas.Top="31">Họ tên:</Label>
-        <Label Canvas.Left="202" Canvas.Top="33">Email:</Label>
+        <Label Canvas.Left="243" Canvas.Top="33">Email:</Label>
         <Label  Canvas.Left="31" Canvas.Top="83">SĐT:</Label>
-        <Label  Canvas.Left="194" Canvas.Top="83">Địa chỉ:</Label>
+        <Label  Canvas.Left="235" Canvas.Top="83">Địa chỉ:</Label>
         <TextBox Name="NameTextBox" Canvas.Left="71" Canvas.Top="31"  Width="100"></TextBox>
         <TextBox Name="PhoneTextBox" Canvas.Left="71" Canvas.Top="83"  Width="100"></TextBox>
-        <TextBox Name="EmailTextBox" Canvas.Left="249" Canvas.Top="33"  Width="100"></TextBox>
-        <TextBox Name="AddressTextBox" Canvas.Left="249" Canvas.Top="83"  Width="100"></TextBox>
+        <TextBox Name="EmailTextBox" Canvas.Left="290" Canvas.Top="33"  Width="100"></TextBox>
+        <TextBox Name="AddressTextBox" Canvas.Left="290" Canvas.Top="83"  Width="100"></TextBox>
         <Button Canvas.Left="133" Canvas.Top="135">Đăng ký</Button>
     </Canvas>
 </UserControl>
