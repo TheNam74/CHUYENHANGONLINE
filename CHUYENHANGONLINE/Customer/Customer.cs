@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CHUYENHANGONLINE.Customer
 {
-    class Customer:IUser
+    public class Customer:IUser
     {
         public int Id { get; set; }
         public int LoginId { get; set; }
