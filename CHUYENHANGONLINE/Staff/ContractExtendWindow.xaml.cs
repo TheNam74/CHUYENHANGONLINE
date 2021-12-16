@@ -27,15 +27,20 @@ namespace CHUYENHANGONLINE.Staff
             this._provider = provider;
             InitializeComponent();
         }
-
         private void ContractExtendWindow_OnLoaded(object sender, RoutedEventArgs e)
         {
             ProviderNameLabel.Content = _provider.Name;
-            DatePicker.SelectedDate = _provider.ContractDate;   
+            DatePicker.SelectedDate = _provider.ContractDate;
+            TaxCodeTextBlock.Text = _provider.TaxCode;
+            ProductTypeTextBlock.Text = _provider.ProductType;
+            EmailTextBlock.Text = _provider.Email;
+            TelTextBlock.Text = _provider.Tel;
+            CommissionTextBlock.Text = _provider.Commission.ToString();
+            BranchAmountTextBlock.Text = _provider.BranchAmount.ToString();
+            OrderAmountTextBlock.Text = _provider.OrderAmount.ToString();
 
 
         }
-
         private void SaveButton_OnClick(object sender, RoutedEventArgs e)
         {
             if (_provider.ContractDate != DatePicker.SelectedDate)

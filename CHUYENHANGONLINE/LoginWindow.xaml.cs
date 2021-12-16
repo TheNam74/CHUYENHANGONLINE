@@ -179,6 +179,11 @@ namespace CHUYENHANGONLINE
                 var test = MainWindow.User;
                 this.Close();
             }
+            else
+            {
+                MessageBox.Show("Sai tên đăng nhập hoặc mật khẩu");
+                
+            }
         }
 
         private void Selector_OnSelectionChanged(object sender, SelectionChangedEventArgs e)

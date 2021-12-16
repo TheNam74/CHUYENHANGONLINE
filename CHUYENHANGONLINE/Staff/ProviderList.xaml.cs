@@ -33,6 +33,7 @@ namespace CHUYENHANGONLINE.Staff
 
         private void ProviderList_OnLoaded(object sender, RoutedEventArgs e)
         {
+            ProviderListView.Items.Clear();
             ProviderListView.ItemsSource = _porviderList;
         }
 
@@ -45,5 +46,6 @@ namespace CHUYENHANGONLINE.Staff
                 contractExtendWindow.Show();
             }
         }
+
     }
 }

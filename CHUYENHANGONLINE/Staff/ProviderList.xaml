@@ -5,33 +5,47 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CHUYENHANGONLINE.Staff"
         mc:Ignorable="d"
-        Title="ProviderList" Height="450" Width="800" Loaded="ProviderList_OnLoaded">
+        Title="ProviderList" Height="450" Width="800" MinHeight="450" MinWidth="800" Loaded="ProviderList_OnLoaded">
     <Window.Resources>
         <local:IsOutOfDateConverter x:Key="IsOutOfDateConverter" />
     </Window.Resources>
     <Grid>
         <ListView Name="ProviderListView">
+            <Style TargetType="{x:Type ListView}" BasedOn="{StaticResource MaterialDesignListView}">
+
+            </Style>
             <ListView.Resources>
                 <ContextMenu x:Key="ItemContextMenu">
-                    <MenuItem Header="Delete"/>
-                    <MenuItem Header="Edit"/>
+                    <MenuItem Name="ContractExtendMenuItem" Header="Gia hạn" Click="ContractExtendMenuItem_OnClick"/>
                 </ContextMenu>
+               
             </ListView.Resources>
             
             <ListView.View>
                 <GridView>
                     <GridViewColumn Width="200" Header="Tên đối tác" DisplayMemberBinding="{Binding Path=Name}" />
-                    <GridViewColumn Width="200" Header="Địa chỉ" DisplayMemberBinding="{Binding Path=Address}" />
                     <GridViewColumn Width="200" Header="Hạn hợp đồng" DisplayMemberBinding="{Binding ContractDate, StringFormat='{}{0:MM/dd/yyyy h:mm tt}' }" />
+                    <GridViewColumn Width="200" Header="Người đại diện" DisplayMemberBinding="{Binding Path=Represent}" />
+                    <GridViewColumn Width="200" Header="Thành phố" DisplayMemberBinding="{Binding Path=City}" />
+                    <GridViewColumn Width="200" Header="Quận" DisplayMemberBinding="{Binding Path=District}" />
+                    <GridViewColumn Width="200" Header="Địa chỉ" DisplayMemberBinding="{Binding Path=Address}" />
+
                 </GridView>
 
             </ListView.View>
+            <ListView.ItemContainerStyle>
 
-            <ListView.ContextMenu>
-                <ContextMenu>
-                    <MenuItem Name="ContractExtendMenuItem" Header="Gia hạn" Click="ContractExtendMenuItem_OnClick"/>
-                </ContextMenu>
-            </ListView.ContextMenu>
+                <Style TargetType="{x:Type ListViewItem}"  BasedOn="{StaticResource MaterialDesignGridViewItem }">
+                     <Setter Property="ContextMenu" Value="{StaticResource ItemContextMenu}" />
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Path=ContractDate, Converter={StaticResource IsOutOfDateConverter}}" Value="False">
+                            <Setter Property="Background" Value="CadetBlue" />
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+                
+            </ListView.ItemContainerStyle>
+
         </ListView>
     </Grid>
 </Window>

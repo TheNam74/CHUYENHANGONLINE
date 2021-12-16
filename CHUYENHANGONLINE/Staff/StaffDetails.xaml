@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CHUYENHANGONLINE.Staff"
         mc:Ignorable="d"
-        Title="Thông tin nhân viên" Height="239" Width="357" Loaded="StaffDetails_OnLoaded" Background="GhostWhite">
+        Title="Thông tin nhân viên" Height="239" Width="357" MinHeight="239" MinWidth="357" Loaded="StaffDetails_OnLoaded" Background="GhostWhite">
     <Canvas>
         <StackPanel Canvas.Left="28" Canvas.Top="40">
             <StackPanel Orientation="Horizontal">

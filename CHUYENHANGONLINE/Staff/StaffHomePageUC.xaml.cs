@@ -69,14 +69,14 @@ namespace CHUYENHANGONLINE.Staff
 
             reader.Close();
             var staffDetailsWindow = new ProviderList(porviderList);
-            staffDetailsWindow.Show();
+            staffDetailsWindow.ShowDialog();
         }
 
         private void ProfileButton_OnClick(object sender, RoutedEventArgs e)
         {
 
             var staffDetailsWindow = new StaffDetails();
-            staffDetailsWindow.Show();
+            staffDetailsWindow.ShowDialog();
         }
 
         private void NewProviderListButton_OnClick(object sender, RoutedEventArgs e)
@@ -112,7 +112,14 @@ namespace CHUYENHANGONLINE.Staff
 
             reader.Close();
             var staffDetailsWindow = new ProviderList(porviderList);
-            staffDetailsWindow.Show();
+            staffDetailsWindow.ShowDialog();
+        }
+
+        private void SignOutButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            System.Diagnostics.Process.Start(Application.ResourceAssembly.Location);
+            Application.Current.Shutdown();
+            // System.Windows.Forms.Application.Restart();
         }
     }
 }

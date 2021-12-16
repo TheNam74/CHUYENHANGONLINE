@@ -13,6 +13,10 @@ namespace CHUYENHANGONLINE.Staff
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
+            if (value == null)
+            {
+                return true;
+            }
             DateTime date = (DateTime)value;
             DateTime curDate = DateTime.Now;
 
