@@ -30,5 +30,11 @@ namespace CHUYENHANGONLINE.Staff
         {
             HelloLabel.Content = $"Xin chào {_staff.Name}";
         }
+
+        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
+        {
+            var staffDetailsWindow = new StaffDetails();
+            staffDetailsWindow.Show();
+        }
     }
 }
