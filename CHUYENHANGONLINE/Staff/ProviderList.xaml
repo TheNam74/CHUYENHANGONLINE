@@ -12,13 +12,11 @@
     <Grid>
         <ListView Name="ProviderListView">
             <Style TargetType="{x:Type ListView}" BasedOn="{StaticResource MaterialDesignListView}">
-
             </Style>
             <ListView.Resources>
                 <ContextMenu x:Key="ItemContextMenu">
                     <MenuItem Name="ContractExtendMenuItem" Header="Gia hạn" Click="ContractExtendMenuItem_OnClick"/>
                 </ContextMenu>
-               
             </ListView.Resources>
             
             <ListView.View>
@@ -37,11 +35,11 @@
 
                 <Style TargetType="{x:Type ListViewItem}"  BasedOn="{StaticResource MaterialDesignGridViewItem }">
                      <Setter Property="ContextMenu" Value="{StaticResource ItemContextMenu}" />
-                    <Style.Triggers>
-                        <DataTrigger Binding="{Binding Path=ContractDate, Converter={StaticResource IsOutOfDateConverter}}" Value="False">
-                            <Setter Property="Background" Value="CadetBlue" />
-                        </DataTrigger>
-                    </Style.Triggers>
+                     <Style.Triggers>
+                         <DataTrigger Binding="{Binding Path=ContractDate, Converter={StaticResource IsOutOfDateConverter}}" Value="False">
+                             <Setter Property="Background" Value="CadetBlue" />
+                         </DataTrigger>
+                     </Style.Triggers>
                 </Style>
                 
             </ListView.ItemContainerStyle>

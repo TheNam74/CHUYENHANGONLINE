@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CHUYENHANGONLINE.Shipper
 {
-    class Shipper: IUser
+    public class Shipper: IUser
     {
         public int Id { get; set; }
         public int LoginId { get; set; }

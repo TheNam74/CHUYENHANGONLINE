@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace CHUYENHANGONLINE.Staff
 {
     //Admin is a staff
-    class Staff:IUser
+    public class Staff:IUser
     {
         public int Id { get; set; }
         public int LoginId { get; set; }
