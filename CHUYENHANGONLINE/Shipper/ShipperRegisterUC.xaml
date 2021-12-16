@@ -4,7 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:CHUYENHANGONLINE.Shipper"
-             mc:Ignorable="d" d:DesignWidth="400" Background="WhiteSmoke" Height="343">
+             mc:Ignorable="d" d:DesignWidth="400" Background="WhiteSmoke" Height="345">
     <Canvas>
         <Label  Canvas.Left="16" Canvas.Top="31">Họ tên:</Label>
         <Label Canvas.Left="243" Canvas.Top="33">Email:</Label>
