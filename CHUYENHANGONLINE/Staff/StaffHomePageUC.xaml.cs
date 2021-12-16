@@ -114,5 +114,34 @@ namespace CHUYENHANGONLINE.Staff
             var staffDetailsWindow = new ProviderList(porviderList);
             staffDetailsWindow.Show();
         }
+
+        private void ProductListButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            BindingList<Product> products = new();
+            SqlCommand sqlCmd = new SqlCommand();
+            sqlCmd.CommandType = CommandType.StoredProcedure;
+            sqlCmd.CommandText = "USP_SELECT_SANPHAM";
+            sqlCmd.Connection = MainWindow.sqlCon;
+            SqlDataReader reader = sqlCmd.ExecuteReader();
+            while (reader.Read())
+            {
+                var temp = new Product()
+                {
+                    ProviderID = reader.GetInt32(0),
+                    BranchID = reader.GetInt32(1),
+                    ProID = reader.GetInt32(2),
+                    ProName = reader.GetString(3),
+                    ProInfo = reader.SafeGetString(4),
+                    ProPrice = reader.GetFloat(5),
+                    ProUnit = reader.GetString(6),
+                    ProAmount = reader.GetInt32(7),
+                };
+                products.Add(temp);
+            }
+
+            reader.Close();
+            var staffDetailsWindow = new ProductListWindow(products);
+            staffDetailsWindow.Show();
+        }
     }
 }

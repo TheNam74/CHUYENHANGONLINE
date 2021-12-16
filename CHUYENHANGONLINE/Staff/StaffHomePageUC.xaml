@@ -12,6 +12,7 @@
 
         <Button Name="ProviderListButton" Canvas.Left="328" Canvas.Top="152" Click="ProviderListButton_OnClick">Danh sách đối tác</Button>
         <Button Name="NewProviderListButton" Canvas.Left="332" Canvas.Top="225" Click="NewProviderListButton_OnClick">Duyệt hợp đồng</Button>
+        <Button Name="ProductListButton" Canvas.Left="319" Canvas.Top="294" Click="ProductListButton_OnClick">Danh sách sản phẩm</Button>
         <Button Name="ProfileButton" Canvas.Left="492" Canvas.Top="1" Click="ProfileButton_OnClick">Thông tin nhân viên</Button>
     </Canvas>
 </UserControl>
