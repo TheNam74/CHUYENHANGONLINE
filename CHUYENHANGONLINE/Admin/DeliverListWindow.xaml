@@ -8,6 +8,18 @@
         Title="Danh sách tài xế" Height="450" Width="800" Loaded="DeliverListWindow_OnLoaded">
     <Grid>
         <ListView Name="DeliverListView">
+            <Style TargetType="{x:Type ListView}" BasedOn="{StaticResource MaterialDesignListView}">
+            </Style>
+            <!--Cài context menu để chuột phải ở đây-->
+            <ListView.Resources>
+                <ContextMenu x:Key="LockedItemContextMenu">
+                    <MenuItem Name="UnlockMenuItem" Header="Mở Khóa" Click="UnlockMenuItem_OnClick" />
+                </ContextMenu>
+                <ContextMenu x:Key="UnlockItemContextMenu">
+                    <MenuItem Name="LockMenuItem" Header="Khóa" Click="LockMenuItem_OnClick"/>
+                </ContextMenu>
+            </ListView.Resources>
+            
             <ListView.View>
                 <GridView>
                     <GridViewColumn Width="200" Header="Tên" DisplayMemberBinding="{Binding Path=Name}" />
@@ -20,6 +32,24 @@
                     <GridViewColumn Width="200" Header="CMND" DisplayMemberBinding="{Binding Path=CitizenId}" />
                 </GridView>
             </ListView.View>
+
+
+            <!--Tùy vào tài khoản đang khóa hay không mà có background và context menu khác nhau-->
+            <ListView.ItemContainerStyle>
+                <Style TargetType="{x:Type ListViewItem}"  BasedOn="{StaticResource MaterialDesignGridViewItem }">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Path=Status}" Value="True">
+                            <Setter Property="Background" Value="CadetBlue" />
+                            <Setter Property="ContextMenu" Value="{StaticResource UnlockItemContextMenu}" />
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding Path=Status }" Value="False">
+                            <Setter Property="Background" Value="DarkGray" />
+                            <Setter Property="ContextMenu" Value="{StaticResource LockedItemContextMenu}" />
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+
+            </ListView.ItemContainerStyle>
         </ListView>
     </Grid>
 </Window>

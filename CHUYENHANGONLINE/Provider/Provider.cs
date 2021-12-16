@@ -25,6 +25,7 @@ namespace CHUYENHANGONLINE.Provider
         public string ProductType { get; set; }
         public int BranchAmount { get; set; }
         public float Commission { get; set; }
+        public bool Status { get; set; }
 
         public event PropertyChangedEventHandler PropertyChanged;
     }
