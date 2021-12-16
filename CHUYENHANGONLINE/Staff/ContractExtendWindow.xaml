@@ -1,0 +1,17 @@
+﻿<Window x:Class="CHUYENHANGONLINE.Staff.ContractExtendWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CHUYENHANGONLINE.Staff"
+        mc:Ignorable="d"
+        Title="Gia hạn hợp đồng" Height="196" Width="282"
+        Loaded="ContractExtendWindow_OnLoaded">
+    <Canvas>
+        <StackPanel Canvas.Left="35" Canvas.Top="30">
+            <Label x:Name="ProviderNameLabel" FontSize="20" Foreground="GhostWhite" Background="CadetBlue" Width="212" HorizontalContentAlignment="Center"/>
+            <DatePicker Height="25" x:Name="DatePicker" Width="115" />
+            <Button Name="SaveButton" Click="SaveButton_OnClick" Margin="0,10,0,0">Lưu</Button>
+        </StackPanel>
+    </Canvas>
+</Window>

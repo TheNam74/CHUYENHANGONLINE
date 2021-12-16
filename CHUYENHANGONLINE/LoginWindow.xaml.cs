@@ -135,7 +135,7 @@ namespace CHUYENHANGONLINE
                                 City = reader.GetString(6),
                                 District = reader.GetString(7),
                                 Email = reader.GetString(8),
-                                ContractDate = reader.GetDateTime(9),
+                                ContractDate = reader.SafeGetDate(9),
                                 OrderAmount = reader.GetInt32(10),
                                 ProductType = reader.GetString(11),
                                 BranchAmount = reader.GetInt32(12),
