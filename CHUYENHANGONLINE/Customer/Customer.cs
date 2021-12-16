@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CHUYENHANGONLINE.Customer
+﻿namespace CHUYENHANGONLINE.Customer
 {
-    class Customer:IUser
+    public class Customer : IUser
     {
         public int Id { get; set; }
         public int LoginId { get; set; }

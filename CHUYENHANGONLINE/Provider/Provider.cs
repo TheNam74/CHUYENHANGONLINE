@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CHUYENHANGONLINE.Provider
 {
-    class Provider:IUser
+    public class Provider : IUser
     {
         public int Id { get; set; }
         public int LoginId { get; set; }
@@ -23,6 +19,6 @@ namespace CHUYENHANGONLINE.Provider
         public string ProductType { get; set; }
         public int BranchAmount { get; set; }
         public float Commission { get; set; }
-      
+
     }
 }
