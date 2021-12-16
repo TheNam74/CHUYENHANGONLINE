@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -30,6 +32,31 @@ namespace CHUYENHANGONLINE.Admin
         {
             CustomerListView.Items.Clear();
             CustomerListView.ItemsSource = _customerList;
+        }
+        
+        private void LockMenuItem_OnClick(object sender, RoutedEventArgs e)
+        {
+            var customer = CustomerListView.SelectedItem as Customer.Customer;
+            using (SqlCommand cmd = new SqlCommand("USP_KHOATAIKHOAN", MainWindow.sqlCon))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add("@MATK", SqlDbType.VarChar).Value = customer.LoginId;
+                cmd.ExecuteNonQuery();
+            }
+
+            customer.Status = false;
+        }
+
+        private void UnlockMenuItem_OnClick(object sender, RoutedEventArgs e)
+        {
+            var customer = CustomerListView.SelectedItem as Customer.Customer;
+            using (SqlCommand cmd = new SqlCommand("USP_MOKHOATAIKHOAN", MainWindow.sqlCon))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add("@MATK", SqlDbType.VarChar).Value = customer.LoginId;
+                cmd.ExecuteNonQuery();
+            }
+            customer.Status = true;
         }
     }
 }

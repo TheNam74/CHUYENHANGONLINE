@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -30,6 +32,31 @@ namespace CHUYENHANGONLINE.Admin
         {
             DeliverListView.Items.Clear();
             DeliverListView.ItemsSource = _shipperList;
+        }
+
+        private void LockMenuItem_OnClick(object sender, RoutedEventArgs e)
+        {
+            var deliver = DeliverListView.SelectedItem as Shipper.Shipper;
+            using (SqlCommand cmd = new SqlCommand("USP_KHOATAIKHOAN", MainWindow.sqlCon))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add("@MATK", SqlDbType.VarChar).Value = deliver.LoginId;
+                cmd.ExecuteNonQuery();
+            }
+
+            deliver.Status = false;
+        }
+
+        private void UnlockMenuItem_OnClick(object sender, RoutedEventArgs e)
+        {
+            var deliver = DeliverListView.SelectedItem as Shipper.Shipper;
+            using (SqlCommand cmd = new SqlCommand("USP_MOKHOATAIKHOAN", MainWindow.sqlCon))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add("@MATK", SqlDbType.VarChar).Value = deliver.LoginId;
+                cmd.ExecuteNonQuery();
+            }
+            deliver.Status = true;
         }
     }
 }

@@ -50,9 +50,9 @@ namespace CHUYENHANGONLINE.Admin
         {
             BindingList<Staff.Staff> adminList = new();
             SqlCommand sqlCmd = new SqlCommand();
-            sqlCmd.CommandType = CommandType.Text;
+            sqlCmd.CommandType = CommandType.StoredProcedure;
 
-            sqlCmd.CommandText = "select n.* from NHANVIEN n, TAIKHOAN t where n.MATAIKHOAN=t.MATK and t.VAITRO = 'admin' ";
+            sqlCmd.CommandText = "USP_DANHSACH_ADMIN";
             sqlCmd.Connection = MainWindow.sqlCon;
             SqlDataReader reader = sqlCmd.ExecuteReader();
             while (reader.Read())
@@ -64,6 +64,7 @@ namespace CHUYENHANGONLINE.Admin
                     Email = reader.GetString(2),
                     Tel = reader.GetString(3),
                     LoginId = reader.GetInt32(4),
+                    Status = reader.GetBoolean(5),
                 };
                 adminList.Add(temp);
             }
@@ -77,9 +78,9 @@ namespace CHUYENHANGONLINE.Admin
         {
             BindingList<Staff.Staff> staffList = new();
             SqlCommand sqlCmd = new SqlCommand();
-            sqlCmd.CommandType = CommandType.Text;
+            sqlCmd.CommandType = CommandType.StoredProcedure;
 
-            sqlCmd.CommandText = "select n.* from NHANVIEN n, TAIKHOAN t where n.MATAIKHOAN=t.MATK and t.VAITRO = 'staff' ";
+            sqlCmd.CommandText = "USP_DANHSACH_STAFF";
             sqlCmd.Connection = MainWindow.sqlCon;
             SqlDataReader reader = sqlCmd.ExecuteReader();
             while (reader.Read())
@@ -91,6 +92,7 @@ namespace CHUYENHANGONLINE.Admin
                     Email = reader.GetString(2),
                     Tel = reader.GetString(3),
                     LoginId = reader.GetInt32(4),
+                    Status = reader.GetBoolean(5),
                 };
                 staffList.Add(temp);
             }
@@ -104,9 +106,9 @@ namespace CHUYENHANGONLINE.Admin
         {
             BindingList<Provider.Provider> providerList = new();
             SqlCommand sqlCmd = new SqlCommand();
-            sqlCmd.CommandType = CommandType.Text;
+            sqlCmd.CommandType = CommandType.StoredProcedure;
 
-            sqlCmd.CommandText = "select * from DOITAC";
+            sqlCmd.CommandText = "USP_DANHSACH_PROVIDER";
             sqlCmd.Connection = MainWindow.sqlCon;
             SqlDataReader reader = sqlCmd.ExecuteReader();
             while (reader.Read())
@@ -128,12 +130,13 @@ namespace CHUYENHANGONLINE.Admin
                     BranchAmount = reader.GetInt32(12),
                     LoginId = reader.GetInt32(13),
                     Commission = reader.GetFloat(14),
+                    Status = reader.GetBoolean(15),
                 };
                 providerList.Add(temp);
             }
 
             reader.Close();
-            var providerListWindow = new ProviderList(providerList);
+            var providerListWindow = new ProviderListWindow(providerList);
             providerListWindow.ShowDialog();
         }
 
@@ -141,9 +144,9 @@ namespace CHUYENHANGONLINE.Admin
         {
             BindingList<Customer.Customer> customerList = new();
             SqlCommand sqlCmd = new SqlCommand();
-            sqlCmd.CommandType = CommandType.Text;
+            sqlCmd.CommandType = CommandType.StoredProcedure;
 
-            sqlCmd.CommandText = "select * from KHACHHANG";
+            sqlCmd.CommandText = "USP_DANHSACH_CUSTOMER";
             sqlCmd.Connection = MainWindow.sqlCon;
             SqlDataReader reader = sqlCmd.ExecuteReader();
             while (reader.Read())
@@ -156,6 +159,7 @@ namespace CHUYENHANGONLINE.Admin
                     Tel = reader.GetString(3),
                     Address = reader.GetString(4),
                     LoginId = reader.GetInt32(5),
+                    Status = reader.GetBoolean(6),
                 };
                 customerList.Add(temp);
             }
@@ -169,9 +173,9 @@ namespace CHUYENHANGONLINE.Admin
         {
             BindingList<Shipper.Shipper> deliverList = new();
             SqlCommand sqlCmd = new SqlCommand();
-            sqlCmd.CommandType = CommandType.Text;
+            sqlCmd.CommandType = CommandType.StoredProcedure;
 
-            sqlCmd.CommandText = "select * from TAIXE";
+            sqlCmd.CommandText = "USP_DANHSACH_DELIVER";
             sqlCmd.Connection = MainWindow.sqlCon;
             SqlDataReader reader = sqlCmd.ExecuteReader();
             while (reader.Read())
@@ -188,6 +192,7 @@ namespace CHUYENHANGONLINE.Admin
                     Area = reader.GetString(7),
                     CitizenId = reader.GetString(8),
                     LoginId = reader.GetInt32(9),
+                    Status = reader.GetBoolean(10),
                 };
                 deliverList.Add(temp);
             }

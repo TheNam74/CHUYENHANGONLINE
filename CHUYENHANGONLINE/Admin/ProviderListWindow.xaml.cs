@@ -18,46 +18,47 @@ using System.Windows.Shapes;
 namespace CHUYENHANGONLINE.Admin
 {
     /// <summary>
-    /// Interaction logic for AdminListWindow.xaml
+    /// Interaction logic for ProviderListWindow.xaml
     /// </summary>
-    public partial class AdminListWindow : Window
+    public partial class ProviderListWindow : Window
     {
-        private BindingList<Staff.Staff> _adminList;
-        public AdminListWindow(BindingList<Staff.Staff> adminList)
-        {
-            _adminList = adminList;
-            InitializeComponent();
-        }
+        private BindingList<Provider.Provider> _providerList;
 
-        private void AdminListWindow_OnLoaded(object sender, RoutedEventArgs e)
+        public ProviderListWindow(BindingList<Provider.Provider> productList)
         {
-            AdminListView.Items.Clear();
-            AdminListView.ItemsSource = _adminList;
+            _providerList = productList;
+            InitializeComponent();
+
+        }
+        private void ProviderListWindow_OnLoaded(object sender, RoutedEventArgs e)
+        {
+            ProviderListView.Items.Clear();
+            ProviderListView.ItemsSource = _providerList;
         }
 
         private void LockMenuItem_OnClick(object sender, RoutedEventArgs e)
         {
-            var admin = AdminListView.SelectedItem as Staff.Staff;
+            var provider = ProviderListView.SelectedItem as Provider.Provider;
             using (SqlCommand cmd = new SqlCommand("USP_KHOATAIKHOAN", MainWindow.sqlCon))
             {
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.Add("@MATK", SqlDbType.VarChar).Value = admin.LoginId;
+                cmd.Parameters.Add("@MATK", SqlDbType.VarChar).Value = provider.LoginId;
                 cmd.ExecuteNonQuery();
             }
 
-            admin.Status = false;
+            provider.Status = false;
         }
 
         private void UnlockMenuItem_OnClick(object sender, RoutedEventArgs e)
         {
-            var admin = AdminListView.SelectedItem as Staff.Staff;
+            var provider = ProviderListView.SelectedItem as Provider.Provider;
             using (SqlCommand cmd = new SqlCommand("USP_MOKHOATAIKHOAN", MainWindow.sqlCon))
             {
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.Add("@MATK", SqlDbType.VarChar).Value = admin.LoginId;
+                cmd.Parameters.Add("@MATK", SqlDbType.VarChar).Value = provider.LoginId;
                 cmd.ExecuteNonQuery();
             }
-            admin.Status = true;
+            provider.Status = true;
         }
     }
 }
