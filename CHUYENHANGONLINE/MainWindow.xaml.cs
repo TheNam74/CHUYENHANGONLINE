@@ -1,19 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using System.Data.SqlClient;
+using System.Windows;
 
 
 namespace CHUYENHANGONLINE
@@ -30,7 +18,7 @@ namespace CHUYENHANGONLINE
         public static IUser User;
         public MainWindow()
         {
-            
+
             InitializeComponent();
             try
             {
@@ -43,9 +31,9 @@ namespace CHUYENHANGONLINE
                     loginWindow.ShowDialog();
                     if (loginWindow.DialogResult != true)
                     {
-                       this.Close();//Chưa đăng nhập thành công
+                        this.Close();//Chưa đăng nhập thành công
                     }
-                }   
+                }
             }
             catch (Exception e)
             {
@@ -61,7 +49,7 @@ namespace CHUYENHANGONLINE
             {
                 sqlCon.Close();
             }
-            
+
         }
 
         private void MainWindow_OnLoaded(object sender, RoutedEventArgs e)
@@ -71,7 +59,9 @@ namespace CHUYENHANGONLINE
                 case "staff":
                     this.Content = new Staff.StaffHomePageUC();
                     break;
-
+                case "customer":
+                    this.Content = new Customer.CustomerHomePageUC();
+                    break;
             }
         }
     }
