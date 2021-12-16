@@ -125,7 +125,6 @@ namespace CHUYENHANGONLINE
                         {
                             MainWindow.User = new Provider.Provider()
                             {
-
                                 Id = reader.GetInt32(0),
                                 TaxCode = reader.GetString(1),
                                 Address = reader.GetString(2),

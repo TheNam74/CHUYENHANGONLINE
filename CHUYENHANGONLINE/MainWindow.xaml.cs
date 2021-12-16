@@ -72,6 +72,9 @@ namespace CHUYENHANGONLINE
                     this.Content = new Staff.StaffHomePageUC();
                     break;
 
+                case "deliver":
+                    this.Content = new Shipper.ShipperHomePageUC();
+                    break;
             }
         }
     }
