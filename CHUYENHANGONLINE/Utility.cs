@@ -16,5 +16,11 @@ namespace CHUYENHANGONLINE
                 return reader.GetDateTime(colIndex);
             return null;
         }
+        public static String SafeGetString(this SqlDataReader reader, int colIndex)
+        {
+            if (!reader.IsDBNull(colIndex))
+                return reader.GetString(colIndex);
+            return "";
+        }
     }
 }
