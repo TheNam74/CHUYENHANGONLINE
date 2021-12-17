@@ -30,7 +30,6 @@ namespace CHUYENHANGONLINE
         public static IUser User;
         public MainWindow()
         {
-            
             InitializeComponent();
             try
             {

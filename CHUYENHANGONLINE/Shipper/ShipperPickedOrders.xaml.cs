@@ -92,6 +92,19 @@ namespace CHUYENHANGONLINE.Shipper
                 _pickedOrderList.Add(order);
             }
             reader.Close();
+            parameters.Clear();
+
+            string query = $"usp_select_phivanchuyendonhang";
+            SqlParameter param2 = new SqlParameter("@matx", SqlDbType.Int);
+            param2.Value = _shipper.Id;
+
+            parameters.Add(param2);
+            ExecuteQuery(query, "storedProc", ref reader, parameters);
+            while (reader.Read())
+            {
+                Revenue.Text = reader.SafeGetInt(0).ToString();
+            }
+
             PickedOrderList.Items.Clear();
             PickedOrderList.ItemsSource = _pickedOrderList;
         }
