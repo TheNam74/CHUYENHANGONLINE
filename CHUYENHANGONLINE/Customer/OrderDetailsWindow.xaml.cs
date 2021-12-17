@@ -1,16 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+﻿using System.Windows;
 
 namespace CHUYENHANGONLINE.Customer
 {
@@ -19,9 +7,16 @@ namespace CHUYENHANGONLINE.Customer
     /// </summary>
     public partial class OrderDetailsWindow : Window
     {
-        public OrderDetailsWindow()
+        private Order order;
+        public OrderDetailsWindow(Order inputOrder)
         {
+            order = inputOrder;
             InitializeComponent();
+        }
+
+        private void OrderDetailsWindow_OnLoaded(object sender, RoutedEventArgs e)
+        {
+            this.DataContext = order;
         }
     }
 }

@@ -11,5 +11,7 @@
         public string ProUnit { get; set; }
         public int ProAmount { get; set; }
 
+        public int? BuyingAmount { get; set; }
+
     }
 }

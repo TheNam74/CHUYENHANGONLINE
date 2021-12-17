@@ -23,7 +23,9 @@ namespace CHUYENHANGONLINE.Customer
 
         private void BtnOrderDetailOnClick(object sender, RoutedEventArgs e)
         {
-
+            int index = OrderListView.SelectedIndex;
+            var orderDetails = new OrderDetailsWindow(_orderList[index]);
+            orderDetails.Show();
         }
     }
 }

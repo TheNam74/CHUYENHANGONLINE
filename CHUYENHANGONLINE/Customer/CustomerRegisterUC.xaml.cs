@@ -1,17 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Data;
+using System.Data.SqlClient;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace CHUYENHANGONLINE.Customer
 {
@@ -23,6 +13,14 @@ namespace CHUYENHANGONLINE.Customer
         public CustomerRegisterUC()
         {
             InitializeComponent();
+        }
+
+        private void BtnRegister_OnClick(object sender, RoutedEventArgs e)
+        {
+            SqlCommand sqlCmd = new SqlCommand();
+            sqlCmd.CommandType = CommandType.StoredProcedure;
+            sqlCmd.CommandText = "USP_THEMDONHANG_KHACHHANG";
+            sqlCmd.Connection = MainWindow.sqlCon;
         }
     }
 }

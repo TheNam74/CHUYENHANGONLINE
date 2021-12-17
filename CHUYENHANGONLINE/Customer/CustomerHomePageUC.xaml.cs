@@ -11,6 +11,9 @@ namespace CHUYENHANGONLINE.Customer
     /// </summary>
     public partial class CustomerHomePageUC : UserControl
     {
+
+        public static BindingList<OrderDetail> CartItem = new();
+
         private Customer _customer = (MainWindow.User as Customer);
         public CustomerHomePageUC()
         {
@@ -72,7 +75,6 @@ namespace CHUYENHANGONLINE.Customer
             BindingList<Order> orderList = new();
             SqlCommand sqlCmd = new SqlCommand();
             sqlCmd.CommandType = CommandType.StoredProcedure;
-
             sqlCmd.CommandText = "USP_XEMDANHSACHDONHANG_KHACHHANG";
             sqlCmd.Connection = MainWindow.sqlCon;
             SqlParameter maKHParameter = new SqlParameter("@MAKH", SqlDbType.Int);
@@ -100,6 +102,17 @@ namespace CHUYENHANGONLINE.Customer
             reader.Close();
             var providerListView = new OrderListWindow(orderList);
             providerListView.Show();
+        }
+
+        private void Cart_OnClick_OnClick(object sender, RoutedEventArgs e)
+        {
+            var cartView = new CartWindow();
+            cartView.Show();
+        }
+
+        private void BtnLogout_OnClick(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
         }
     }
 }
