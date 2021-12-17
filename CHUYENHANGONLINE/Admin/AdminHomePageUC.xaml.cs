@@ -24,6 +24,7 @@ namespace CHUYENHANGONLINE.Admin
     /// </summary>
     public partial class AdminHomePageUC : UserControl
     {
+        public string temp;
         private Staff.Staff _admin = (MainWindow.User as Staff.Staff);
         public AdminHomePageUC()
         {
@@ -204,12 +205,14 @@ namespace CHUYENHANGONLINE.Admin
 
         private void AddStaffButton_OnClick(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            var addStaffWindow = new AddStaffWindow();
+            addStaffWindow.ShowDialog();
         }
 
         private void AddAdminButton_OnClick(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            var addAdminWindow = new AddAdminWindow();
+            addAdminWindow.ShowDialog();
         }
     }
 }
