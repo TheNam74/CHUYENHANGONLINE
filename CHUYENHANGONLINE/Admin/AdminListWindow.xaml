@@ -31,11 +31,11 @@
                 <Style TargetType="{x:Type ListViewItem}"  BasedOn="{StaticResource MaterialDesignGridViewItem }">
                     <Style.Triggers>
                         <DataTrigger Binding="{Binding Path=Status}" Value="True">
-                            <Setter Property="Background" Value="CadetBlue" />
+                            <Setter Property="Background" Value="#F0ECE3" />
                             <Setter Property="ContextMenu" Value="{StaticResource UnlockItemContextMenu}" />
                         </DataTrigger>
                         <DataTrigger Binding="{Binding Path=Status }" Value="False">
-                            <Setter Property="Background" Value="DarkGray" />
+                            <Setter Property="Background" Value="#F5F5F5" />
                             <Setter Property="ContextMenu" Value="{StaticResource LockedItemContextMenu}" />
                         </DataTrigger>
                     </Style.Triggers>
