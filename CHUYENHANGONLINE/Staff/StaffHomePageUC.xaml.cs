@@ -37,7 +37,7 @@ namespace CHUYENHANGONLINE.Staff
 
         private void ProviderListButton_OnClick(object sender, RoutedEventArgs e)
         {
-            BindingList<Provider.Provider> porviderList = new();
+            BindingList<Provider.Provider> providerList = new();
             SqlCommand sqlCmd = new SqlCommand();
             sqlCmd.CommandType = CommandType.StoredProcedure;
 
@@ -64,12 +64,12 @@ namespace CHUYENHANGONLINE.Staff
                     LoginId = reader.GetInt32(13),
                     Commission = reader.GetFloat(14),
                 };
-                porviderList.Add(temp);
+                providerList.Add(temp);
             }
 
             reader.Close();
-            var staffDetailsWindow = new ProviderList(porviderList);
-            staffDetailsWindow.ShowDialog();
+            var providerListWindow = new ProviderList(providerList);
+            providerListWindow.ShowDialog();
         }
 
         private void ProfileButton_OnClick(object sender, RoutedEventArgs e)
@@ -81,7 +81,7 @@ namespace CHUYENHANGONLINE.Staff
 
         private void NewProviderListButton_OnClick(object sender, RoutedEventArgs e)
         {
-            BindingList<Provider.Provider> porviderList = new();
+            BindingList<Provider.Provider> providerList = new();
             SqlCommand sqlCmd = new SqlCommand();
             sqlCmd.CommandType = CommandType.StoredProcedure;
             sqlCmd.CommandText = "USP_XEMDANHSACHCHUADUYET_HOPDONGDOITAC";
@@ -107,12 +107,12 @@ namespace CHUYENHANGONLINE.Staff
                     LoginId = reader.GetInt32(13),
                     Commission = reader.GetFloat(14),
                 };
-                porviderList.Add(temp);
+                providerList.Add(temp);
             }
 
             reader.Close();
-            var staffDetailsWindow = new ProviderList(porviderList);
-            staffDetailsWindow.ShowDialog();
+            var providerListWindow = new ProviderList(providerList);
+            providerListWindow.ShowDialog();
         }
 
         private void SignOutButton_OnClick(object sender, RoutedEventArgs e)

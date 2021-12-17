@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace CHUYENHANGONLINE.Shipper
 {
-    class Shipper: IUser
+    public class Shipper: IUser, INotifyPropertyChanged
     {
         public int Id { get; set; }
         public int LoginId { get; set; }
@@ -18,5 +19,7 @@ namespace CHUYENHANGONLINE.Shipper
         public string BankAccount { get; set; }
         public string Area { get; set; }
         public string CitizenId { get; set; }
+        public bool Status { get; set; }
+        public event PropertyChangedEventHandler? PropertyChanged;
     }
 }

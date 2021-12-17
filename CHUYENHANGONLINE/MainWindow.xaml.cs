@@ -14,6 +14,9 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Data.SqlClient;
+using CHUYENHANGONLINE.Admin;
+using CHUYENHANGONLINE.Shipper;
+using CHUYENHANGONLINE.Staff;
 
 
 namespace CHUYENHANGONLINE
@@ -68,12 +71,16 @@ namespace CHUYENHANGONLINE
             switch (Actor)
             {
                 case "staff":
-                    this.Content = new Staff.StaffHomePageUC();
+                    this.Content = new StaffHomePageUC();
                     break;
 
                 case "deliver":
-                    this.Content = new Shipper.ShipperHomePageUC();
+                    this.Content = new ShipperHomePageUC();
                     break;
+                case "admin":
+                    this.Content = new AdminHomePageUC();
+                    break;
+
             }
         }
     }

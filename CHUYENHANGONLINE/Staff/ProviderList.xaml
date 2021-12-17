@@ -12,13 +12,12 @@
     <Grid>
         <ListView Name="ProviderListView">
             <Style TargetType="{x:Type ListView}" BasedOn="{StaticResource MaterialDesignListView}">
-
             </Style>
             <ListView.Resources>
                 <ContextMenu x:Key="ItemContextMenu">
                     <MenuItem Name="ContractExtendMenuItem" Header="Gia hạn" Click="ContractExtendMenuItem_OnClick"/>
                 </ContextMenu>
-               
+                
             </ListView.Resources>
             
             <ListView.View>
@@ -36,11 +35,23 @@
             <ListView.ItemContainerStyle>
 
                 <Style TargetType="{x:Type ListViewItem}"  BasedOn="{StaticResource MaterialDesignGridViewItem }">
-                     <Setter Property="ContextMenu" Value="{StaticResource ItemContextMenu}" />
-                    <Style.Triggers>
-                        <DataTrigger Binding="{Binding Path=ContractDate, Converter={StaticResource IsOutOfDateConverter}}" Value="False">
-                            <Setter Property="Background" Value="CadetBlue" />
+                    
+                     <Style.Triggers>
+                         <!--Trigger khi còn hạn hợp đồng-->
+                         <DataTrigger Binding="{Binding Path=ContractDate, Converter={StaticResource IsOutOfDateConverter}}" Value="0">
+                             <Setter Property="Background" Value="CadetBlue" />
+                            <Setter Property="ContextMenu" Value="{StaticResource ItemContextMenu}" />
                         </DataTrigger>
+                         <!--Trigger khi hết hạn hợp đồng-->
+                        <DataTrigger Binding="{Binding Path=ContractDate, Converter={StaticResource IsOutOfDateConverter}}" Value="1">
+                            <Setter Property="Background" Value="#FAEDC6" />
+                            <Setter Property="ContextMenu" Value="{StaticResource ItemContextMenu}" />
+                         </DataTrigger>
+                         <!--Trigger khi hợp đồng chưa được duyệt-->
+                        <DataTrigger Binding="{Binding Path=ContractDate, Converter={StaticResource IsOutOfDateConverter}}" Value="-1">
+                             <Setter Property="Background" Value="WhiteSmoke" />
+                             <Setter Property="ContextMenu" Value="{StaticResource ItemContextMenu}" />
+                         </DataTrigger>
                     </Style.Triggers>
                 </Style>
                 
