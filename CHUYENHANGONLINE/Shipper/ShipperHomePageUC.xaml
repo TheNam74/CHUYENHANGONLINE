@@ -12,8 +12,8 @@
         <Button Canvas.Left="492" Canvas.Top="1" Click="ButtonBase_OnClick">Thông tin tài khoản</Button>
 
         <Button Canvas.Left="272" Canvas.Top="162" Click="ShowOrderListButton_Click">Danh sách đơn hàng trong khu vực</Button>
-        <Button Canvas.Left="272" Canvas.Top="225" Width="255">Danh sách đơn hàng đã nhận</Button>
-        <Button Canvas.Left="272" Canvas.Top="291" Width="255">Kiểm tra doanh thu</Button>
+        <Button Canvas.Left="272" Canvas.Top="225" Click="ShowPickedOrderListButton_CLick" Width="255">Danh sách đơn hàng đã nhận</Button>
+        <Button Canvas.Left="272" Canvas.Top="291" Width="255" Click="ShowRevenueButton_Click">Kiểm tra doanh thu</Button>
 
     </Canvas>
 </UserControl>

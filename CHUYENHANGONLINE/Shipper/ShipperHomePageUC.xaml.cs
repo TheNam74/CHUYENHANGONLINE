@@ -42,5 +42,11 @@ namespace CHUYENHANGONLINE.Shipper
             var shipperOrderListWindow = new ShipperOrderList();
             shipperOrderListWindow.Show();
         }
+        private void ShowPickedOrderListButton_CLick(object sender, RoutedEventArgs e)
+        {
+            var shippePickedOrderListWindow = new ShipperPickedOrders();
+            shippePickedOrderListWindow.Show();
+        }
+
     }
 }
