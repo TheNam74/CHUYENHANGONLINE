@@ -5,8 +5,34 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CHUYENHANGONLINE.Shipper"
         mc:Ignorable="d"
-        Title="ShipperOrderList" Height="450" Width="800">
-    <Canvas>
-        
-    </Canvas>
+        Title="ShipperOrderList" Height="450" Width="1000" Loaded="ShipperOrderList_OnLoaded">
+    <Grid>
+        <ListView x:Name="OrderList">
+            <Style TargetType="{x:Type ListView}" BasedOn="{StaticResource MaterialDesignListView}"></Style>
+            <!--Cài context menu để chuột phải ở đây-->
+            <ListView.Resources>
+                <ContextMenu x:Key="ItemContextMenu">
+                    <MenuItem Name="ContractExtendMenuItem" Header="Chọn vận chuyển" Click="PickOrder_Click"/>
+                </ContextMenu>
+            </ListView.Resources>
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Thanh toán"  Width="150" DisplayMemberBinding="{Binding Payments}" />
+                    <GridViewColumn Header="Phí ship" Width="80" DisplayMemberBinding="{Binding ShipCost}"/>
+                    <GridViewColumn Header="Tổng tiền" Width="150" DisplayMemberBinding="{Binding TotalBill}" />
+                    <GridViewColumn Header="Địa chỉ giao" Width="100" DisplayMemberBinding="{Binding ShipAddress}"/>
+                    <GridViewColumn Header="Tình trạng" Width="150" DisplayMemberBinding="{Binding Status}"/>
+                    <GridViewColumn Header="Mã shipper" Width="150" DisplayMemberBinding="{Binding ShipID}"/>
+                    <GridViewColumn Header="Ngày đặt" Width="150" DisplayMemberBinding="{Binding CreDate, StringFormat='{}{0:MM/dd/yyyy h:mm tt}'}"/>
+                    <GridViewColumn Header="Ngày giao" Width="150" DisplayMemberBinding="{Binding ShipDate, StringFormat='{}{0:MM/dd/yyyy h:mm tt}'}" />
+                </GridView>
+            </ListView.View>
+            <!--Thêm context menu để chuột phải ở đây-->
+            <ListView.ItemContainerStyle>
+                <Style TargetType="{x:Type ListViewItem}"  BasedOn="{StaticResource MaterialDesignGridViewItem }">
+                    <Setter Property="ContextMenu" Value="{StaticResource ItemContextMenu}" />
+                </Style>
+            </ListView.ItemContainerStyle>
+        </ListView>
+    </Grid>
 </Window>

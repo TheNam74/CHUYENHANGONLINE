@@ -21,6 +21,12 @@ namespace CHUYENHANGONLINE
             if (!reader.IsDBNull(colIndex))
                 return reader.GetString(colIndex);
             return "";
+        } 
+        public static int SafeGetInt(this SqlDataReader reader, int colIndex)
+        {
+            if (!reader.IsDBNull(colIndex))
+                return reader.GetInt32(colIndex);
+            return 0;
         }
     }
 }
