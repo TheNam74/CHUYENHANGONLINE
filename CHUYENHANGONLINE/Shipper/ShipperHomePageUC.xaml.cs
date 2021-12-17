@@ -37,5 +37,10 @@ namespace CHUYENHANGONLINE.Shipper
             staffDetailsWindow.Show();*/
         }
 
+        private void ShowOrderListButton_Click(object sender, RoutedEventArgs e)
+        {
+            var shipperOrderListWindow = new ShipperOrderList();
+            shipperOrderListWindow.Show();
+        }
     }
 }
