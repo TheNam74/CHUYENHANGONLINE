@@ -10,14 +10,14 @@
         <Label  Canvas.Left="243" Canvas.Top="83">Email:</Label>
         <Label  Canvas.Left="31" Canvas.Top="83">SĐT:</Label>
         <Label  Canvas.Left="235" Canvas.Top="125">Địa chỉ:</Label>
+        <Label  Canvas.Left="16" Canvas.Top="125" Content="Họ tên:"/>
+        <Label  Canvas.Left="221" Canvas.Top="31" Content="Mật khẩu:"/>
         <TextBox Name="UserNameTextBox" Canvas.Left="100" Canvas.Top="31"  Width="100"></TextBox>
+        <TextBox x:Name="PasswordTextBox" Canvas.Left="290" Canvas.Top="31"  Width="100"/>
         <TextBox Name="PhoneTextBox" Canvas.Left="100" Canvas.Top="83"  Width="100"></TextBox>
         <TextBox Name="EmailTextBox" Canvas.Left="290" Canvas.Top="83"  Width="100"></TextBox>
-        <TextBox Name="AddressTextBox" Canvas.Left="290" Canvas.Top="125"  Width="100"></TextBox>
-        <Label  Canvas.Left="16" Canvas.Top="125" Content="Họ tên:"/>
         <TextBox x:Name="NameTextBox" Canvas.Left="100" Canvas.Top="125"  Width="100"/>
+        <TextBox Name="AddressTextBox" Canvas.Left="290" Canvas.Top="125"  Width="100"></TextBox>
         <Button Canvas.Left="121" Canvas.Top="186" Click="BtnRegister_OnClick">Đăng ký</Button>
-        <Label  Canvas.Left="221" Canvas.Top="31" Content="Mật khẩu:"/>
-        <TextBox x:Name="PasswordTextBox" Canvas.Left="290" Canvas.Top="31"  Width="100"/>
     </Canvas>
 </UserControl>
