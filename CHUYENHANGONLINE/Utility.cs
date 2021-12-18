@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CHUYENHANGONLINE
 {
@@ -28,5 +24,6 @@ namespace CHUYENHANGONLINE
                 return reader.GetInt32(colIndex);
             return null;
         }
+
     }
 }

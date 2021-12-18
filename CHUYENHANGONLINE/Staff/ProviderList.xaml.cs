@@ -22,11 +22,11 @@ namespace CHUYENHANGONLINE.Staff
     /// </summary>
     public partial class ProviderList : Window
     {
-        private BindingList<Provider.Provider> _porviderList;
+        private BindingList<Provider.Provider> _providers;
 
         public ProviderList(BindingList<Provider.Provider> productList)
         {
-            _porviderList = productList;
+            _providers = productList;
             InitializeComponent();
             
         }
@@ -34,7 +34,7 @@ namespace CHUYENHANGONLINE.Staff
         private void ProviderList_OnLoaded(object sender, RoutedEventArgs e)
         {
             ProviderListView.Items.Clear();
-            ProviderListView.ItemsSource = _porviderList;
+            ProviderListView.ItemsSource = _providers;
         }
 
         private void ContractExtendMenuItem_OnClick(object sender, RoutedEventArgs e)

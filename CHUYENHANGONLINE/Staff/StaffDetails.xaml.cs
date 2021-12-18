@@ -19,7 +19,6 @@ namespace CHUYENHANGONLINE.Staff
     /// </summary>
     public partial class StaffDetails : Window
     {
-
         public StaffDetails()
         {
             InitializeComponent();

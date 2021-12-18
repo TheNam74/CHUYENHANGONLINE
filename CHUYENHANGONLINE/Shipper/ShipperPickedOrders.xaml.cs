@@ -94,11 +94,13 @@ namespace CHUYENHANGONLINE.Shipper
             reader.Close();
             PickedOrderList.Items.Clear();
             PickedOrderList.ItemsSource = _pickedOrderList;
+
             parameters.Clear();
 
             string query = $"usp_select_phivanchuyendonhang";
             SqlParameter param2 = new SqlParameter("@matx", SqlDbType.Int);
             param2.Value = _shipper.Id;
+
 
             parameters.Add(param2);
 
@@ -107,6 +109,7 @@ namespace CHUYENHANGONLINE.Shipper
             {
                 NumOfDeliveredOrder.Text = reader.SafeGetInt(0).ToString();
                 Revenue.Text = reader.SafeGetInt(1).ToString();
+
             }
             reader.Close();
         }

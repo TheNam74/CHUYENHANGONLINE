@@ -31,7 +31,7 @@ namespace CHUYENHANGONLINE
         {
             var userName = UsernameTextBox.Text;
             var pass = PasswordBox.Password; 
-            var query = $"select * from taikhoan t where t.TENDANGNHAP='{userName}' and t.MATKHAU = '{pass}'";
+            var query = $"select * from taikhoan t where t.TENDANGNHAP='{userName}' and t.MATKHAU = '{pass}' and tinhtrang = 'true'";
             int loginId =-1;
             SqlCommand sqlCmd = new SqlCommand();
             sqlCmd.CommandType = CommandType.Text;
