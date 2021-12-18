@@ -94,20 +94,22 @@ namespace CHUYENHANGONLINE.Shipper
             reader.Close();
             PickedOrderList.Items.Clear();
             PickedOrderList.ItemsSource = _pickedOrderList;
-            
+
             parameters.Clear();
 
             string query = $"usp_select_phivanchuyendonhang";
             SqlParameter param2 = new SqlParameter("@matx", SqlDbType.Int);
             param2.Value = _shipper.Id;
 
-            parameters = new List<SqlParameter>();
+
             parameters.Add(param2);
 
             ExecuteQuery(query, "storedProc", ref reader, parameters);
             while (reader.Read())
             {
-                Revenue.Text = reader.SafeGetInt(0).ToString();
+                NumOfDeliveredOrder.Text = reader.SafeGetInt(0).ToString();
+                Revenue.Text = reader.SafeGetInt(1).ToString();
+
             }
             reader.Close();
         }
@@ -116,7 +118,7 @@ namespace CHUYENHANGONLINE.Shipper
         {
 
         }
-        private void UpdatShipSuccess_Click(object sender, RoutedEventArgs e)
+        private void UpdateShipSuccess_Click(object sender, RoutedEventArgs e)
         {
             var order = PickedOrderList.SelectedItem as Order;
 
@@ -136,8 +138,25 @@ namespace CHUYENHANGONLINE.Shipper
             SqlDataReader reader = null;
             ExecuteQuery(query, "storedProc", ref reader, parameters);
             reader.Close();
+            parameters.Clear();
 
-            foreach(var child in _pickedOrderList)
+            //exec SP query doanh thu cua tai xe
+            query = $"usp_select_phivanchuyendonhang";
+            SqlParameter param4 = new SqlParameter("@matx", SqlDbType.Int);
+            param4.Value = _shipper.Id;
+
+            parameters.Add(param4);
+            
+            ExecuteQuery(query, "storedProc", ref reader, parameters);
+            while (reader.Read())
+            {
+                NumOfDeliveredOrder.Text = reader.SafeGetInt(0).ToString();
+                Revenue.Text = reader.SafeGetInt(1).ToString();
+            }
+            reader.Close();
+
+            //cap nhat lai bindlist sau khi update 
+            foreach (var child in _pickedOrderList)
             {
                 if (child.OrdID == order.OrdID)
                 {

@@ -18,17 +18,17 @@
             <ListView.Resources>
                 <ContextMenu x:Key="ItemContextMenu">
                     <MenuItem Name="ViewDetailOrder" Header="Xem chi tiết" Click="ViewDetailOrder_Click"/>
-                    <MenuItem Name="UpdatShipSuccess" Header="Cập nhật đã giao" Click="UpdatShipSuccess_Click"/>
+                    <MenuItem Name="UpdatShipSuccess" Header="Cập nhật đã giao" Click="UpdateShipSuccess_Click"/>
                 </ContextMenu>
             </ListView.Resources>
             <ListView.View>
                 <GridView>
+                    <GridViewColumn Header="Tình trạng" Width="150" DisplayMemberBinding="{Binding Status}"/>
+                    <GridViewColumn Header="Mã shipper" Width="130" DisplayMemberBinding="{Binding ShipID}"/>
                     <GridViewColumn Header="Thanh toán"  Width="130" DisplayMemberBinding="{Binding Payments}" />
                     <GridViewColumn Header="Phí ship" Width="110" DisplayMemberBinding="{Binding ShipCost}"/>
                     <GridViewColumn Header="Tổng tiền" Width="120" DisplayMemberBinding="{Binding TotalBill}" />
                     <GridViewColumn Header="Địa chỉ giao" Width="180" DisplayMemberBinding="{Binding ShipAddress}"/>
-                    <GridViewColumn Header="Tình trạng" Width="150" DisplayMemberBinding="{Binding Status}"/>
-                    <GridViewColumn Header="Mã shipper" Width="130" DisplayMemberBinding="{Binding ShipID}"/>
                     <GridViewColumn Header="Ngày đặt" Width="150" DisplayMemberBinding="{Binding CreDate, StringFormat='{}{0:MM/dd/yyyy h:mm tt}'}"/>
                     <GridViewColumn Header="Ngày giao" Width="150" DisplayMemberBinding="{Binding ShipDate, StringFormat='{}{0:MM/dd/yyyy h:mm tt}'}" />
                 </GridView>
@@ -56,7 +56,7 @@
             <Label Content="Revenue" FontSize="30" Foreground="White" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
             <Label  Content="Đã giao" Grid.Row="1" Foreground="White" FontSize="15"  HorizontalAlignment="Center" VerticalAlignment="Center"/>
             <Label Content="Doanh thu" Grid.Row="2" Foreground="White" FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-            <TextBlock x:Name="NumOfDeliveredOrder" Foreground="White" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="1"/>
+            <TextBlock x:Name="NumOfDeliveredOrder" Foreground="White" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center"/>
             <TextBlock x:Name="Revenue" FontSize="15" Foreground="White" HorizontalAlignment="Center" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center"/>
         </Grid>
     </Grid>
