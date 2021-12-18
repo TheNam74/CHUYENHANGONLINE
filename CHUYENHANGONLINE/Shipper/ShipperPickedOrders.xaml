@@ -7,7 +7,12 @@
         mc:Ignorable="d"
         Title="ShipperPickedOrders" Height="450" Width="800" Loaded="PickedOrderList_Loaded">
     <Grid>
-        <ListView x:Name="PickedOrderList">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <ListView Grid.ColumnSpan="2" x:Name="PickedOrderList">
             <Style TargetType="{x:Type ListView}" BasedOn="{StaticResource MaterialDesignListView}"></Style>
             <!--Cài context menu để chuột phải ở đây-->
             <ListView.Resources>
@@ -18,7 +23,7 @@
             </ListView.Resources>
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Thanh toán" Width="130" DisplayMemberBinding="{Binding Payments}" />
+                    <GridViewColumn Header="Thanh toán"  Width="130" DisplayMemberBinding="{Binding Payments}" />
                     <GridViewColumn Header="Phí ship" Width="110" DisplayMemberBinding="{Binding ShipCost}"/>
                     <GridViewColumn Header="Tổng tiền" Width="120" DisplayMemberBinding="{Binding TotalBill}" />
                     <GridViewColumn Header="Địa chỉ giao" Width="180" DisplayMemberBinding="{Binding ShipAddress}"/>
@@ -36,5 +41,23 @@
                 </Style>
             </ListView.ItemContainerStyle>
         </ListView>
+        <Grid Grid.Column="2" Background="CadetBlue">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Label Content="Revenue" FontSize="30" Foreground="White" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Label  Content="Đã giao" Grid.Row="1" Foreground="White" FontSize="15"  HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Label Content="Doanh thu" Grid.Row="2" Foreground="White" FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <TextBlock x:Name="NumOfDeliveredOrder" Foreground="White" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="1"/>
+            <TextBlock x:Name="Revenue" FontSize="15" Foreground="White" HorizontalAlignment="Center" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center"/>
+        </Grid>
     </Grid>
 </Window>
