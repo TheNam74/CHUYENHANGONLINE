@@ -12,7 +12,8 @@
             <!--Cài context menu để chuột phải ở đây-->
             <ListView.Resources>
                 <ContextMenu x:Key="ItemContextMenu">
-                    <MenuItem Name="ContractExtendMenuItem" Header="Chọn vận chuyển" Click="PickOrder_Click"/>
+                    <MenuItem Name="PickOrder" Header="Chọn vận chuyển" Click="PickOrder_Click"/>
+                    <MenuItem Name="ViewDetail" Header="Xem chi tiết đơn hàng" Click="ViewDetail_Click"/>
                 </ContextMenu>
             </ListView.Resources>
             <ListView.View>
