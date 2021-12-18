@@ -4,16 +4,20 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:CHUYENHANGONLINE.Customer"
-             mc:Ignorable="d" d:DesignWidth="400" Background="WhiteSmoke" Height="195">
+             mc:Ignorable="d" d:DesignWidth="400" Background="WhiteSmoke" Height="250">
     <Canvas>
-        <Label  Canvas.Left="16" Canvas.Top="31">Họ tên:</Label>
-        <Label Canvas.Left="243" Canvas.Top="33">Email:</Label>
+        <Label  Canvas.Left="16" Canvas.Top="31">Tên đăng nhập:</Label>
+        <Label  Canvas.Left="243" Canvas.Top="83">Email:</Label>
         <Label  Canvas.Left="31" Canvas.Top="83">SĐT:</Label>
-        <Label  Canvas.Left="235" Canvas.Top="83">Địa chỉ:</Label>
-        <TextBox Name="NameTextBox" Canvas.Left="71" Canvas.Top="31"  Width="100"></TextBox>
-        <TextBox Name="PhoneTextBox" Canvas.Left="71" Canvas.Top="83"  Width="100"></TextBox>
-        <TextBox Name="EmailTextBox" Canvas.Left="290" Canvas.Top="33"  Width="100"></TextBox>
-        <TextBox Name="AddressTextBox" Canvas.Left="290" Canvas.Top="83"  Width="100"></TextBox>
-        <Button Canvas.Left="133" Canvas.Top="135">Đăng ký</Button>
+        <Label  Canvas.Left="235" Canvas.Top="125">Địa chỉ:</Label>
+        <Label  Canvas.Left="16" Canvas.Top="125" Content="Họ tên:"/>
+        <Label  Canvas.Left="221" Canvas.Top="31" Content="Mật khẩu:"/>
+        <TextBox Name="UserNameTextBox" Canvas.Left="100" Canvas.Top="31"  Width="100"></TextBox>
+        <TextBox x:Name="PasswordTextBox" Canvas.Left="290" Canvas.Top="31"  Width="100"/>
+        <TextBox Name="PhoneTextBox" Canvas.Left="100" Canvas.Top="83"  Width="100"></TextBox>
+        <TextBox Name="EmailTextBox" Canvas.Left="290" Canvas.Top="83"  Width="100"></TextBox>
+        <TextBox x:Name="NameTextBox" Canvas.Left="100" Canvas.Top="125"  Width="100"/>
+        <TextBox Name="AddressTextBox" Canvas.Left="290" Canvas.Top="125"  Width="100"></TextBox>
+        <Button Canvas.Left="121" Canvas.Top="186" Click="BtnRegister_OnClick">Đăng ký</Button>
     </Canvas>
 </UserControl>
