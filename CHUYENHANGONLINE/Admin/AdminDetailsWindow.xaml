@@ -1,11 +1,11 @@
-﻿<Window x:Class="CHUYENHANGONLINE.Staff.StaffDetails"
+﻿<Window x:Class="CHUYENHANGONLINE.Admin.AdminDetailsWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:CHUYENHANGONLINE.Staff"
+        xmlns:local="clr-namespace:CHUYENHANGONLINE.Admin"
         mc:Ignorable="d"
-        Title="Thông tin nhân viên" Height="239" Width="357" MinHeight="239" MinWidth="357" Loaded="StaffDetails_OnLoaded" Background="GhostWhite">
+        Title="Thông tin quản trị viên" Height="239" Width="357" MinHeight="239" MinWidth="357" Loaded="AdminDetailsWindow_OnLoadedDetails_OnLoaded" Background="GhostWhite">
     <Canvas>
         <StackPanel Canvas.Left="28" Canvas.Top="40">
             <StackPanel Orientation="Horizontal">

@@ -1,8 +1,13 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace CHUYENHANGONLINE
 {
-    public class Order
+    public class Order :INotifyPropertyChanged
     {
         public int OrdID { get; set; }
         public string Payments { get; set; }
@@ -14,5 +19,7 @@ namespace CHUYENHANGONLINE
         public int CusID { get; set; }
         public DateTime? CreDate { get; set; }
         public DateTime? ShipDate { get; set; }
+
+        public event PropertyChangedEventHandler PropertyChanged;
     }
 }

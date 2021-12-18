@@ -1,8 +1,14 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Linq;
+using System.Runtime.CompilerServices;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace CHUYENHANGONLINE.Provider
 {
-    public class Provider : IUser
+    public class Provider:IUser, INotifyPropertyChanged
     {
         public int Id { get; set; }
         public int LoginId { get; set; }
@@ -14,11 +20,13 @@ namespace CHUYENHANGONLINE.Provider
         public string Represent { get; set; }
         public string City { get; set; }
         public string District { get; set; }
-        public DateTime ContractDate { get; set; }
+        public DateTime? ContractDate { get; set; }//nullable
         public int OrderAmount { get; set; }
         public string ProductType { get; set; }
         public int BranchAmount { get; set; }
         public float Commission { get; set; }
+        public bool Status { get; set; }
 
+        public event PropertyChangedEventHandler PropertyChanged;
     }
 }

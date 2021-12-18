@@ -1,7 +1,12 @@
 ﻿using System;
 using System.Data;
 using System.Data.SqlClient;
+
 using System.Windows;
+
+using CHUYENHANGONLINE.Admin;
+using CHUYENHANGONLINE.Shipper;
+using CHUYENHANGONLINE.Staff;
 
 
 namespace CHUYENHANGONLINE
@@ -12,13 +17,12 @@ namespace CHUYENHANGONLINE
     public partial class MainWindow : Window
     {
         string strCon =
-            @"Data Source=LAPTOP-VRPVMK5E\SQLEXPRESS;Initial Catalog=QL_CHUYENHANGONLINE;Integrated Security=True";
+                @"Data Source=DEONE\SQLEXPRESS;Initial Catalog = QL_CHUYENHANGONLINE; Integrated Security = True";
         public static SqlConnection sqlCon = null; //cho tất cả window khác xài ké
         public static string Actor;
         public static IUser User;
         public MainWindow()
         {
-
             InitializeComponent();
             try
             {
@@ -57,7 +61,14 @@ namespace CHUYENHANGONLINE
             switch (Actor)
             {
                 case "staff":
-                    this.Content = new Staff.StaffHomePageUC();
+                    this.Content = new StaffHomePageUC();
+                    break;
+
+                case "deliver":
+                    this.Content = new ShipperHomePageUC();
+                    break;
+                case "admin":
+                    this.Content = new AdminHomePageUC();
                     break;
                 case "customer":
                     this.Content = new Customer.CustomerHomePageUC();

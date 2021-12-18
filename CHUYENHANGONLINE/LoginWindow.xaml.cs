@@ -31,7 +31,7 @@ namespace CHUYENHANGONLINE
         {
             var userName = UsernameTextBox.Text;
             var pass = PasswordBox.Password; 
-            var query = $"select * from taikhoan t where t.TENDANGNHAP='{userName}' and t.MATKHAU = '{pass}'";
+            var query = $"select * from taikhoan t where t.TENDANGNHAP='{userName}' and t.MATKHAU = '{pass}' and tinhtrang = 'true'";
             int loginId =-1;
             SqlCommand sqlCmd = new SqlCommand();
             sqlCmd.CommandType = CommandType.Text;
@@ -125,7 +125,6 @@ namespace CHUYENHANGONLINE
                         {
                             MainWindow.User = new Provider.Provider()
                             {
-
                                 Id = reader.GetInt32(0),
                                 TaxCode = reader.GetString(1),
                                 Address = reader.GetString(2),
@@ -135,7 +134,7 @@ namespace CHUYENHANGONLINE
                                 City = reader.GetString(6),
                                 District = reader.GetString(7),
                                 Email = reader.GetString(8),
-                                ContractDate = reader.GetDateTime(9),
+                                ContractDate = reader.SafeGetDate(9),
                                 OrderAmount = reader.GetInt32(10),
                                 ProductType = reader.GetString(11),
                                 BranchAmount = reader.GetInt32(12),
@@ -178,6 +177,11 @@ namespace CHUYENHANGONLINE
                 this.DialogResult = true;
                 var test = MainWindow.User;
                 this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Sai tên đăng nhập hoặc mật khẩu");
+                
             }
         }
 

@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -30,11 +33,93 @@ namespace CHUYENHANGONLINE.Staff
         {
             HelloLabel.Content = $"Xin chào {_staff.Name}";
         }
+        
 
-        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
+        private void ProviderListButton_OnClick(object sender, RoutedEventArgs e)
         {
+            BindingList<Provider.Provider> providerList = new();
+            SqlCommand sqlCmd = new SqlCommand();
+            sqlCmd.CommandType = CommandType.StoredProcedure;
+
+            sqlCmd.CommandText = "USP_XEMDANHSACH_HOPDONGDOITAC";
+            sqlCmd.Connection = MainWindow.sqlCon;
+            SqlDataReader reader = sqlCmd.ExecuteReader();
+            while (reader.Read())
+            {
+                var temp = new Provider.Provider()
+                {
+                    Id = reader.GetInt32(0),
+                    TaxCode = reader.GetString(1),
+                    Address = reader.GetString(2),
+                    Name = reader.GetString(3),
+                    Tel = reader.GetString(4),
+                    Represent = reader.GetString(5),
+                    City = reader.GetString(6),
+                    District = reader.GetString(7),
+                    Email = reader.GetString(8),
+                    ContractDate = reader.SafeGetDate(9),
+                    OrderAmount = reader.GetInt32(10),
+                    ProductType = reader.GetString(11),
+                    BranchAmount = reader.GetInt32(12),
+                    LoginId = reader.GetInt32(13),
+                    Commission = reader.GetFloat(14),
+                };
+                providerList.Add(temp);
+            }
+
+            reader.Close();
+            var providerListWindow = new ProviderList(providerList);
+            providerListWindow.ShowDialog();
+        }
+
+        private void ProfileButton_OnClick(object sender, RoutedEventArgs e)
+        {
+
             var staffDetailsWindow = new StaffDetails();
-            staffDetailsWindow.Show();
+            staffDetailsWindow.ShowDialog();
+        }
+
+        private void NewProviderListButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            BindingList<Provider.Provider> providerList = new();
+            SqlCommand sqlCmd = new SqlCommand();
+            sqlCmd.CommandType = CommandType.StoredProcedure;
+            sqlCmd.CommandText = "USP_XEMDANHSACHCHUADUYET_HOPDONGDOITAC";
+            sqlCmd.Connection = MainWindow.sqlCon;
+            SqlDataReader reader = sqlCmd.ExecuteReader();
+            while (reader.Read())
+            {
+                var temp = new Provider.Provider()
+                {
+                    Id = reader.GetInt32(0),
+                    TaxCode = reader.GetString(1),
+                    Address = reader.GetString(2),
+                    Name = reader.GetString(3),
+                    Tel = reader.GetString(4),
+                    Represent = reader.GetString(5),
+                    City = reader.GetString(6),
+                    District = reader.GetString(7),
+                    Email = reader.GetString(8),
+                    ContractDate = reader.SafeGetDate(9),
+                    OrderAmount = reader.GetInt32(10),
+                    ProductType = reader.GetString(11),
+                    BranchAmount = reader.GetInt32(12),
+                    LoginId = reader.GetInt32(13),
+                    Commission = reader.GetFloat(14),
+                };
+                providerList.Add(temp);
+            }
+
+            reader.Close();
+            var providerListWindow = new ProviderList(providerList);
+            providerListWindow.ShowDialog();
+        }
+
+        private void SignOutButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            System.Diagnostics.Process.Start(Application.ResourceAssembly.Location);
+            Application.Current.Shutdown();
+            // System.Windows.Forms.Application.Restart();
         }
     }
 }
