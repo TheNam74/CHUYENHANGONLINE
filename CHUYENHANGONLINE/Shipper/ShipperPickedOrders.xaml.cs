@@ -114,60 +114,63 @@ namespace CHUYENHANGONLINE.Shipper
             reader.Close();
         }
 
-        private void ViewDetailOrder_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
         private void UpdateShipSuccess_Click(object sender, RoutedEventArgs e)
         {
             var order = PickedOrderList.SelectedItem as Order;
 
-            string query = $"usp_update_tinhtrangdonhang";
-            SqlParameter param = new SqlParameter("@madh", SqlDbType.Int);
-            SqlParameter param2 = new SqlParameter("@tinhtrang", SqlDbType.NVarChar);
-            SqlParameter param3 = new SqlParameter("@ngaygiao", SqlDbType.Date);
-            param.Value = order.OrdID;
-            param2.Value = "đã giao";
-            param3.Value = DateTime.Today;
-
-            List<SqlParameter> parameters = new List<SqlParameter>();
-            parameters.Add(param);
-            parameters.Add(param2);
-            parameters.Add(param3);
-
-            SqlDataReader reader = null;
-            ExecuteQuery(query, "storedProc", ref reader, parameters);
-            reader.Close();
-            parameters.Clear();
-
-            //exec SP query doanh thu cua tai xe
-            query = $"usp_select_phivanchuyendonhang";
-            SqlParameter param4 = new SqlParameter("@matx", SqlDbType.Int);
-            param4.Value = _shipper.Id;
-
-            parameters.Add(param4);
-            
-            ExecuteQuery(query, "storedProc", ref reader, parameters);
-            while (reader.Read())
+            if(order.Status == "đã giao")
             {
-                NumOfDeliveredOrder.Text = reader.SafeGetInt(0).ToString();
-                Revenue.Text = reader.SafeGetInt(1).ToString();
+                MessageBox.Show("Không thể cập nhật tình trạng đơn hàng đã giao");
             }
-            reader.Close();
-
-            //cap nhat lai bindlist sau khi update 
-            foreach (var child in _pickedOrderList)
+            else
             {
-                if (child.OrdID == order.OrdID)
+                string query = $"usp_update_tinhtrangdonhang";
+                SqlParameter param = new SqlParameter("@madh", SqlDbType.Int);
+                SqlParameter param2 = new SqlParameter("@tinhtrang", SqlDbType.NVarChar);
+                SqlParameter param3 = new SqlParameter("@ngaygiao", SqlDbType.Date);
+                param.Value = order.OrdID;
+                param2.Value = "đã giao";
+                param3.Value = DateTime.Today;
+
+                List<SqlParameter> parameters = new List<SqlParameter>();
+                parameters.Add(param);
+                parameters.Add(param2);
+                parameters.Add(param3);
+
+                SqlDataReader reader = null;
+                ExecuteQuery(query, "storedProc", ref reader, parameters);
+                reader.Close();
+                parameters.Clear();
+
+                //exec SP query doanh thu cua tai xe
+                query = $"usp_select_phivanchuyendonhang";
+                SqlParameter param4 = new SqlParameter("@matx", SqlDbType.Int);
+                param4.Value = _shipper.Id;
+
+                parameters.Add(param4);
+            
+                ExecuteQuery(query, "storedProc", ref reader, parameters);
+                while (reader.Read())
                 {
-                    query = $"select * from donhang where madh = {order.OrdID}";
-                    ExecuteQuery(query, "query", ref reader);
-                    while (reader.Read())
+                    NumOfDeliveredOrder.Text = reader.SafeGetInt(0).ToString();
+                    Revenue.Text = reader.SafeGetInt(1).ToString();
+                }
+                reader.Close();
+
+                //cap nhat lai bindlist sau khi update 
+                foreach (var child in _pickedOrderList)
+                {
+                    if (child.OrdID == order.OrdID)
                     {
-                        child.Status = "đã giao";
-                        child.ShipDate = reader.SafeGetDate(9);
+                        query = $"select * from donhang where madh = {order.OrdID}";
+                        ExecuteQuery(query, "query", ref reader);
+                        while (reader.Read())
+                        {
+                            child.Status = "đã giao";
+                            child.ShipDate = reader.SafeGetDate(9);
+                        }
+                        reader.Close();
                     }
-                    reader.Close();
                 }
             }
         }

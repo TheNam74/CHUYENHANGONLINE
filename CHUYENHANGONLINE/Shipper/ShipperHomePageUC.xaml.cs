@@ -33,8 +33,8 @@ namespace CHUYENHANGONLINE.Shipper
 
         private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
         {
-            /*var staffDetailsWindow = new StaffDetails();
-            staffDetailsWindow.Show();*/
+            var shipperProfile = new ShipperProfile();
+            shipperProfile.Show();
         }
 
         private void ShowOrderListButton_Click(object sender, RoutedEventArgs e)
