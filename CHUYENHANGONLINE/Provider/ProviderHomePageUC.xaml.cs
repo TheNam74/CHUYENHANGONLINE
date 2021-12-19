@@ -33,7 +33,7 @@ namespace CHUYENHANGONLINE.Provider
 
         private void BtnLogout_OnClick(object sender, RoutedEventArgs e)
         {
-
+            Application.Current.Shutdown();
         }
 
         private void BranchList_Click(object sender, RoutedEventArgs e)
@@ -52,6 +52,12 @@ namespace CHUYENHANGONLINE.Provider
         {
             var providerProductListWindow = new ProviderProductListWindow();
             providerProductListWindow.Show();
+        }
+
+        private void ProviderDetails_Click(object sender, RoutedEventArgs e)
+        {
+            var providerDetailsWindow = new ProviderDetailsWindow();
+            providerDetailsWindow.Show();
         }
     }
 }

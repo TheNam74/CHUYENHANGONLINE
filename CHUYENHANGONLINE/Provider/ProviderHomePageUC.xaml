@@ -12,5 +12,6 @@
         <Button Canvas.Left="310" Canvas.Top="92" Name="BranchList" Click="BranchList_Click">Danh sách chi nhánh</Button>
         <Button Canvas.Left="310" Canvas.Top="165" Name="ProductList" Click="ProductList_Click">Danh sách Sản phẩm</Button>
         <Button Canvas.Left="310" Canvas.Top="238" Name="OrderList" Click="OrderList_Click">Danh sách đơn hàng</Button>
+        <Button Canvas.Left="312" Canvas.Top="325" Name="ProviderDetails" Click="ProviderDetails_Click">Thông tin tài khoản</Button>
     </Canvas>
 </UserControl>
