@@ -13,7 +13,6 @@
             <ListView.Resources>
                 <ContextMenu x:Key="ItemContextMenu">
                     <MenuItem Name="PickOrder" Header="Chọn vận chuyển" Click="PickOrder_Click"/>
-                    <MenuItem Name="ViewDetail" Header="Xem chi tiết đơn hàng" Click="ViewDetail_Click"/>
                 </ContextMenu>
             </ListView.Resources>
             <ListView.View>

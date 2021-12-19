@@ -4,26 +4,103 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:CHUYENHANGONLINE.Shipper"
-             mc:Ignorable="d" d:DesignWidth="400" Background="WhiteSmoke" Height="345">
-    <Canvas>
-        <Label  Canvas.Left="16" Canvas.Top="31">Họ tên:</Label>
-        <Label Canvas.Left="243" Canvas.Top="33">Email:</Label>
-        <Label  Canvas.Left="31" Canvas.Top="83">SĐT:</Label>
-        <Label  Canvas.Left="235" Canvas.Top="83">Địa chỉ:</Label>
-        <Label  Canvas.Left="16" Canvas.Top="190" RenderTransformOrigin="0.866,0.864">Biển số xe:</Label>
-        <Label  Canvas.Left="16" Canvas.Top="232">STK Ngân hàng:</Label>
-        <Label  Canvas.Left="229" Canvas.Top="137" RenderTransformOrigin="0.966,0.678">Khu vực:</Label>
-        <Label  Canvas.Left="16" Canvas.Top="137">CMND:</Label>
+             mc:Ignorable="d" d:DesignWidth="500" Background="WhiteSmoke" Height="360" Width="460">
+    <StackPanel>
+        <Label Content="Đăng kí Shipper" 
+               Grid.ColumnSpan="2" 
+               HorizontalAlignment="Center"
+               FontSize="20"/>
+        <Grid Height="274">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid Margin="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
 
-        <TextBox Name="NameTextBox" Canvas.Left="71" Canvas.Top="31"  Width="100"></TextBox>
-        <TextBox Name="PhoneTextBox" Canvas.Left="71" Canvas.Top="83"  Width="100"></TextBox>
-        <TextBox Name="EmailTextBox" Canvas.Left="290" Canvas.Top="33"  Width="100"></TextBox>
-        <TextBox Name="AddressTextBox" Canvas.Left="290" Canvas.Top="83"  Width="100"></TextBox>
-        <TextBox Name="CIdTextBox" Canvas.Left="71" Canvas.Top="137"  Width="100"></TextBox>
-        <TextBox Name="AreaTextBox" Canvas.Left="290" Canvas.Top="137"  Width="100"></TextBox>
-        <TextBox Name="PlateTextBox" Canvas.Left="89" Canvas.Top="190"  Width="100"></TextBox>
-        <TextBox Name="BankAccountTextBox" Canvas.Left="117" Canvas.Top="232"  Width="100"></TextBox>
+                <Label Content="Tên đăng nhập:" Grid.Row="1"
+                   VerticalAlignment="Center"/>
+                <TextBox Name="UserName" Grid.Row="1" Grid.Column="1"
+                     VerticalAlignment="Center"/>
 
-        <Button Canvas.Left="158" Canvas.Top="289">Đăng ký</Button>
-    </Canvas>
+                <Label Content="Mật khẩu:" Grid.Row="2"
+                   VerticalAlignment="Center"/>
+                <TextBox Name="Password" Grid.Row="2" Grid.Column="1"
+                     VerticalAlignment="Center"/>
+
+                <Label Content="Họ tên:" Grid.Row="3"
+                   VerticalAlignment="Center"/>
+                <TextBox Name="Name" Grid.Row="3" Grid.Column="1"
+                     VerticalAlignment="Center"/>
+
+                <Label Content="Email:" Grid.Row="4"
+                   VerticalAlignment="Center"/>
+                <TextBox Name="Email" Grid.Row="4" Grid.Column="1"
+                     VerticalAlignment="Center"/>
+
+                <Label Content="Số điện thoại:" Grid.Row="5"
+                   VerticalAlignment="Center"/>
+                <TextBox x:Name="Phone" Grid.Row="5" Grid.Column="1"
+                     VerticalAlignment="Center"/>
+            </Grid>
+            <Grid Grid.Column="1" Margin="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Label Content="Biển số xe:" Grid.Row="1"
+                        VerticalAlignment="Center"/>
+                <TextBox x:Name="VRP" Grid.Row="1" Grid.Column="2"
+                 VerticalAlignment="Center"/>
+
+                <Label Content="TK ngân hàng:" Grid.Row="2"
+                   VerticalAlignment="Center"/>
+                <TextBox x:Name="BankAccount" Grid.Row="2" Grid.Column="2"
+                     VerticalAlignment="Center"/>
+
+                <Label Content="CMND:" Grid.Row="3"
+                   VerticalAlignment="Center"/>
+                <TextBox x:Name="CitizenId" Grid.Row="3" Grid.Column="2"
+                     VerticalAlignment="Center"/>
+
+                <Label Content="Địa chỉ:" Grid.Row="4"
+                   VerticalAlignment="Center"/>
+                <TextBox x:Name="Address" Grid.Row="4" Grid.Column="2"
+                     VerticalAlignment="Center"/>
+
+                <Label Content="Khu vực:" Grid.Row="5"
+                   VerticalAlignment="Center"/>
+                <ComboBox x:Name="Area" Grid.Row="5" Grid.Column="2"
+                 VerticalAlignment="Center">
+                    <ComboBoxItem>Bình Tân</ComboBoxItem>
+                    <ComboBoxItem>Tân Phú</ComboBoxItem>
+                    <ComboBoxItem>Thủ Đức</ComboBoxItem>
+                    <ComboBoxItem>Tân Bình</ComboBoxItem>
+                    <ComboBoxItem>Gò Vấp</ComboBoxItem>
+                    <ComboBoxItem>Bình Thạnh</ComboBoxItem>
+                    <ComboBoxItem>Phú Nhuận</ComboBoxItem>
+                </ComboBox>
+            </Grid>
+        </Grid>
+        <Button x:Name="RegisterBtn" Content="Đăng kí" Width="200" Click="RegisterBtn_Click"/>
+    </StackPanel>
 </UserControl>

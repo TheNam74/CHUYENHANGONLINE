@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Đăng nhập" Height="263" Width="500"
         ResizeMode="NoResize">
-    <Canvas Margin="0,0,0,-6">
+    <Canvas Margin="0,0,0,0">
         <Label Canvas.Left="124" Canvas.Top="29">Tên đăng nhập:</Label>
         <TextBox Name="UsernameTextBox" Width="100" Canvas.Left="233" Canvas.Top="28"></TextBox>
         <Label Canvas.Left="153" Canvas.Top="77">Mật khẩu:</Label>
@@ -20,6 +20,6 @@
             <ComboBoxItem>Đối tác</ComboBoxItem>
             <ComboBoxItem>Tài xế</ComboBoxItem>
         </ComboBox>
-        <ContentControl Name="RegisterContentControl"  Canvas.Left="10" Canvas.Top="241"></ContentControl>
+        <ContentControl Name="RegisterContentControl" Canvas.Left="-10" Canvas.Top="241" Width="500"></ContentControl>
     </Canvas>
 </Window>
