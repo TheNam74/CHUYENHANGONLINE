@@ -36,7 +36,6 @@ namespace CHUYENHANGONLINE.Shipper
             }
             else
             {
-                //Cập nhật mã tài xế vào ddonw hàng
                 string storedProc = $"usp_insert_taikhoantaixe";
 
                 SqlParameter param = new SqlParameter("@tendangnhap", SqlDbType.NVarChar);
