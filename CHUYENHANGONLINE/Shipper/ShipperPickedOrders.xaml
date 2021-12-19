@@ -17,7 +17,6 @@
             <!--Cài context menu để chuột phải ở đây-->
             <ListView.Resources>
                 <ContextMenu x:Key="ItemContextMenu">
-                    <MenuItem Name="ViewDetailOrder" Header="Xem chi tiết" Click="ViewDetailOrder_Click"/>
                     <MenuItem Name="UpdatShipSuccess" Header="Cập nhật đã giao" Click="UpdateShipSuccess_Click"/>
                 </ContextMenu>
             </ListView.Resources>
