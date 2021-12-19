@@ -42,7 +42,7 @@ namespace CHUYENHANGONLINE.Provider
             string LOAIHANG = ProductTypeTextBox.Text;
             int SOCHINHANH = Convert.ToInt32(DepartAmountTextBox.Text);
             string TENDANGNHAP = UserNameTextBox.Text;
-            string MATKHAU = UserNameTextBox.Text;
+            string MATKHAU = PasswordTextBox.Text;
 
             MessageBox.Show($"{MST},{DIACHI},{TEN},{SDT},{NGUOIDAIDIEN},{THANHPHO},{QUAN},{EMAIL},{SODONMOINGAY},{SODONMOINGAY},{SOCHINHANH},{TENDANGNHAP},{MATKHAU}");
 
@@ -68,7 +68,8 @@ namespace CHUYENHANGONLINE.Provider
             //execute query
             int ret = sqlCmd.ExecuteNonQuery();
 
-            MessageBox.Show(ret != -1 ? "Đăng kí thành công" : "Đăng kí thất bại");
+            //MessageBox.Show(ret.ToString());
+            MessageBox.Show(ret != -1 ? "Đăng kí thành công" : "Trùng tài khoản");
         }
     }
 }
