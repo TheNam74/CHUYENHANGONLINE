@@ -27,45 +27,6 @@ namespace CHUYENHANGONLINE.Shipper
             InitializeComponent();
         }
 
-        public int ExecuteQuery(string query, string commandType, ref SqlDataReader reader, List<SqlParameter> parameters = null)
-        {
-            //create query 
-            SqlCommand sqlCmd = new SqlCommand();
-            if (commandType == "storedProc")
-            {
-                sqlCmd.CommandType = CommandType.StoredProcedure;
-            }
-            else if (commandType == "query")
-            {
-                sqlCmd.CommandType = CommandType.Text;
-            }
-
-            sqlCmd.CommandText = query;
-
-            //create parameter 
-            //add parameter to stored procedure
-            if (parameters != null)
-            {
-                foreach (var param in parameters)
-                {
-                    sqlCmd.Parameters.Add(param);
-                }
-            }
-            SqlParameter ReturnValue = new SqlParameter("@RETURNEDVALUE", SqlDbType.Int);
-            ReturnValue.Direction = ParameterDirection.Output;
-            sqlCmd.Parameters.Add(ReturnValue);
-
-            //connection to database
-            sqlCmd.Connection = MainWindow.sqlCon;
-
-            //execute query
-            sqlCmd.ExecuteNonQuery();
-
-            int checkError = (int)sqlCmd.Parameters["@returnedvalue"].Value;
-            return checkError;
-
-        }
-
         private void RegisterBtn_Click(object sender, RoutedEventArgs e)
         {
             if (UserName.Text == "" || Password.Text =="" || Name.Text =="" || Email.Text==""||
