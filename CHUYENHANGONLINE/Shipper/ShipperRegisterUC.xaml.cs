@@ -63,6 +63,7 @@ namespace CHUYENHANGONLINE.Shipper
 
             int checkError = (int)sqlCmd.Parameters["@returnedvalue"].Value;
             return checkError;
+
         }
 
         private void RegisterBtn_Click(object sender, RoutedEventArgs e)
@@ -74,7 +75,6 @@ namespace CHUYENHANGONLINE.Shipper
             }
             else
             {
-                //Cập nhật mã tài xế vào ddonw hàng
                 string storedProc = $"usp_insert_taikhoantaixe";
 
                 SqlParameter param = new SqlParameter("@tendangnhap", SqlDbType.NVarChar);
