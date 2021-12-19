@@ -110,46 +110,53 @@ namespace CHUYENHANGONLINE.Shipper
         private void PickOrder_Click(object sender, RoutedEventArgs e)
         {
             var order = OrderList.SelectedItem as Order;
-            SqlDataReader reader = null;
-            //Cập nhật mã tài xế vào ddonw hàng
-            string storedProc = $"usp_update_mataixedonhang";
-            SqlParameter param = new SqlParameter("@matx", SqlDbType.Int);
-            SqlParameter param2 = new SqlParameter("@madh", SqlDbType.Int);
-            param.Value = _shipper.Id;
-            param2.Value = order.OrdID;
-
-            List<SqlParameter> parameters = new List<SqlParameter>();
-            parameters.Add(param);
-            parameters.Add(param2);
-
-            ExecuteQuery(storedProc, "storedProc", ref reader, parameters);
-            reader.Close();
-
-            //Cập nhật tình trạng đơn hàng thành "đang giao"
-            storedProc = $"usp_update_tinhtrangdonhang";
-            SqlParameter param3 = new SqlParameter("@madh", SqlDbType.Int);
-            SqlParameter param4 = new SqlParameter("@tinhtrang", SqlDbType.NVarChar);
-            param3.Value = order.OrdID;
-            param4.Value = "đang giao";
-
-            parameters.Clear();
-            parameters.Add(param3);
-            parameters.Add(param4);
-
-            ExecuteQuery(storedProc, "storedProc", ref reader, parameters);
-            reader.Close();
-            foreach (var child in _orderList)
+            if(order.Status!="đang chờ"||order.Status!="chờ duyệt")
             {
-                if (child.OrdID == order.OrdID)
+                MessageBox.Show("Không thể nhận đơn hàng");
+            }
+            else
+            {
+                SqlDataReader reader = null;
+                //Cập nhật mã tài xế vào ddonw hàng
+                string storedProc = $"usp_update_mataixedonhang";
+                SqlParameter param = new SqlParameter("@matx", SqlDbType.Int);
+                SqlParameter param2 = new SqlParameter("@madh", SqlDbType.Int);
+                param.Value = _shipper.Id;
+                param2.Value = order.OrdID;
+
+                List<SqlParameter> parameters = new List<SqlParameter>();
+                parameters.Add(param);
+                parameters.Add(param2);
+
+                ExecuteQuery(storedProc, "storedProc", ref reader, parameters);
+                reader.Close();
+
+                //Cập nhật tình trạng đơn hàng thành "đang giao"
+                storedProc = $"usp_update_tinhtrangdonhang";
+                SqlParameter param3 = new SqlParameter("@madh", SqlDbType.Int);
+                SqlParameter param4 = new SqlParameter("@tinhtrang", SqlDbType.NVarChar);
+                param3.Value = order.OrdID;
+                param4.Value = "đang giao";
+
+                parameters.Clear();
+                parameters.Add(param3);
+                parameters.Add(param4);
+
+                ExecuteQuery(storedProc, "storedProc", ref reader, parameters);
+                reader.Close();
+                foreach (var child in _orderList)
                 {
-                    string query = $"select * from donhang where madh = {order.OrdID}";
-                    ExecuteQuery(query, "query", ref reader);
-                    while (reader.Read())
+                    if (child.OrdID == order.OrdID)
                     {
-                        child.Status = reader.GetString(5);
-                        child.ShipID = reader.SafeGetInt(6);
+                        string query = $"select * from donhang where madh = {order.OrdID}";
+                        ExecuteQuery(query, "query", ref reader);
+                        while (reader.Read())
+                        {
+                            child.Status = reader.GetString(5);
+                            child.ShipID = reader.SafeGetInt(6);
+                        }
+                        reader.Close();
                     }
-                    reader.Close();
                 }
             }
         }

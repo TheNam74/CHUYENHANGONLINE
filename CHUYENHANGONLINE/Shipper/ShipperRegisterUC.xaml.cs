@@ -103,6 +103,7 @@ namespace CHUYENHANGONLINE.Shipper
                     CitizenId.Text = "";
                     Area.Text = "";
                 }
+                reader.Close();
             }
         }
     }
