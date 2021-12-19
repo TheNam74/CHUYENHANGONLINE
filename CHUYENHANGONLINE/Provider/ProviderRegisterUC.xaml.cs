@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,6 +25,50 @@ namespace CHUYENHANGONLINE.Provider
         public ProviderRegisterUC()
         {
             InitializeComponent();
+        }
+
+        private void SignUp_Click(object sender, RoutedEventArgs e)
+        {
+            //Lấy thông tin đăng kí từ màn hình xuống
+            string MST = TaxCodeTextBox.Text;
+	        string DIACHI = AddressTextBox.Text;
+            string TEN = NameTextBox.Text;
+            string SDT = PhoneTextBox.Text;
+            string NGUOIDAIDIEN = RepresentTextBox.Text;
+            string THANHPHO = CityTextBox.Text;
+            string QUAN = DistrictTextBox.Text;
+            string EMAIL = EmailTextBox.Text;
+            int SODONMOINGAY = Convert.ToInt32(OrderCountTextBox.Text);
+            string LOAIHANG = ProductTypeTextBox.Text;
+            int SOCHINHANH = Convert.ToInt32(DepartAmountTextBox.Text);
+            string TENDANGNHAP = UserNameTextBox.Text;
+            string MATKHAU = UserNameTextBox.Text;
+
+            MessageBox.Show($"{MST},{DIACHI},{TEN},{SDT},{NGUOIDAIDIEN},{THANHPHO},{QUAN},{EMAIL},{SODONMOINGAY},{SODONMOINGAY},{SOCHINHANH},{TENDANGNHAP},{MATKHAU}");
+
+            //create query for stored procedure
+            SqlCommand sqlCmd = new SqlCommand($"USP_DANGKITAIKHOAN_DOITAC", MainWindow.sqlCon);
+            sqlCmd.CommandType = CommandType.StoredProcedure;
+
+            //create parameter 
+            sqlCmd.Parameters.Add(new SqlParameter("@MST", MST));
+            sqlCmd.Parameters.Add(new SqlParameter("@DIACHI", DIACHI));
+            sqlCmd.Parameters.Add(new SqlParameter("@TEN", TEN));
+            sqlCmd.Parameters.Add(new SqlParameter("@SDT", SDT));
+            sqlCmd.Parameters.Add(new SqlParameter("@NGUOIDAIDIEN", NGUOIDAIDIEN));
+            sqlCmd.Parameters.Add(new SqlParameter("@THANHPHO", THANHPHO));
+            sqlCmd.Parameters.Add(new SqlParameter("@QUAN", QUAN));
+            sqlCmd.Parameters.Add(new SqlParameter("@EMAIL", EMAIL));
+            sqlCmd.Parameters.Add(new SqlParameter("@SODONMOINGAY", SODONMOINGAY));
+            sqlCmd.Parameters.Add(new SqlParameter("@LOAIHANG", LOAIHANG));
+            sqlCmd.Parameters.Add(new SqlParameter("@SOCHINHANH", SOCHINHANH));
+            sqlCmd.Parameters.Add(new SqlParameter("@TENDANGNHAP", TENDANGNHAP));
+            sqlCmd.Parameters.Add(new SqlParameter("@MATKHAU", MATKHAU));
+
+            //execute query
+            int ret = sqlCmd.ExecuteNonQuery();
+
+            MessageBox.Show(ret != -1 ? "Đăng kí thành công" : "Đăng kí thất bại");
         }
     }
 }
