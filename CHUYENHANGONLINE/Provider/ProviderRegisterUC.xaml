@@ -7,9 +7,9 @@
              mc:Ignorable="d" d:DesignWidth="400" Background="WhiteSmoke" Height="370">
 
     <Canvas>
-        <Label  Canvas.Left="44" Canvas.Top="37">Tên:</Label>
+        <Label  Canvas.Left="43" Canvas.Top="47">Tên:</Label>
         <Label  Canvas.Left="3" Canvas.Top="220">Mã số thuế:</Label>
-        <Label Canvas.Left="243" Canvas.Top="31">Email:</Label>
+        <Label Canvas.Left="232" Canvas.Top="46">Email:</Label>
         <Label  Canvas.Left="41" Canvas.Top="88">SĐT:</Label>
         <Label  Canvas.Left="235" Canvas.Top="81">Địa chỉ:</Label>
         <Label  Canvas.Left="192" Canvas.Top="220">Người đại diện:</Label>
@@ -18,20 +18,24 @@
         <Label  Canvas.Left="5" Canvas.Top="264">Số đơn mỗi ngày:</Label>
         <Label  Canvas.Left="220" Canvas.Top="135">Loại hàng:</Label>
         <Label  Canvas.Left="202" Canvas.Top="178">Số chi nhánh:</Label>
+        <Label  Canvas.Left="13" Canvas.Top="11">Tài khoản:</Label>
+        <Label  Canvas.Left="221" Canvas.Top="10">Mật khẩu:</Label>
 
 
 
-        <TextBox Name="NameTextBox" Canvas.Left="81" Canvas.Top="31"  Width="100"></TextBox>
-        <TextBox Name="PhoneTextBox" Canvas.Left="81" Canvas.Top="81"  Width="100"></TextBox>
-        <TextBox Name="EmailTextBox" Canvas.Left="290" Canvas.Top="31"  Width="100"></TextBox>
-        <TextBox Name="AddressTextBox" Canvas.Left="290" Canvas.Top="81"  Width="100"></TextBox>
-        <Button Canvas.Left="158" Canvas.Top="315">Đăng ký</Button>
-        <TextBox x:Name="DistrictTextBox" Canvas.Left="81" Canvas.Top="134"  Width="100"/>
-        <TextBox x:Name="CityTextBox" Canvas.Left="81" Canvas.Top="178"  Width="100"/>
         <TextBox x:Name="TaxCodeTextBox" Canvas.Left="81" Canvas.Top="219"  Width="100"/>
+        <TextBox Name="AddressTextBox" Canvas.Left="290" Canvas.Top="81"  Width="100"></TextBox>
+        <TextBox Name="NameTextBox" Canvas.Left="80" Canvas.Top="44"  Width="100"></TextBox>
+        <TextBox Name="PhoneTextBox" Canvas.Left="81" Canvas.Top="81"  Width="100"></TextBox>
+        <TextBox x:Name="RepresentTextBox" Canvas.Left="290" Canvas.Top="219"  Width="100"/>
+        <TextBox x:Name="CityTextBox" Canvas.Left="81" Canvas.Top="178"  Width="100"/>
+        <TextBox x:Name="DistrictTextBox" Canvas.Left="81" Canvas.Top="134"  Width="100"/>
+        <TextBox Name="EmailTextBox" Canvas.Left="287" Canvas.Top="41"  Width="100"></TextBox>
+        <TextBox x:Name="OrderCountTextBox" Canvas.Left="111" Canvas.Top="263"  Width="100"/>
         <TextBox x:Name="ProductTypeTextBox" Canvas.Left="287" Canvas.Top="134"  Width="100"/>
         <TextBox x:Name="DepartAmountTextBox" Canvas.Left="290" Canvas.Top="178"  Width="100"/>
-        <TextBox x:Name="RepresentTextBox" Canvas.Left="290" Canvas.Top="219"  Width="100"/>
-        <TextBox x:Name="OrderCountTextBox" Canvas.Left="111" Canvas.Top="263"  Width="100"/>
+        <TextBox x:Name="PasswordTextBox" Canvas.Left="288" Canvas.Top="7"  Width="100"/>
+        <Button Canvas.Left="158" Canvas.Top="315" Click="SignUp_Click" >Đăng ký</Button>
+        <TextBox x:Name="UserNameTextBox" Canvas.Left="82" Canvas.Top="5"  Width="100"/>
     </Canvas>
 </UserControl>
