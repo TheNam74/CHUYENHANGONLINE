@@ -13,6 +13,6 @@
         <Button Canvas.Left="310" Canvas.Top="139" Name="ProductList" Click="ProductList_Click">Danh sách Sản phẩm</Button>
         <Button Canvas.Left="310" Canvas.Top="215" Name="OrderList" Click="OrderList_Click">Danh sách đơn hàng</Button>
         <Button Canvas.Left="312" Canvas.Top="288" Name="ProviderDetails" Click="ProviderDetails_Click">Thông tin tài khoản</Button>
-        <Button Canvas.Left="315" Canvas.Top="345" Name="Revenue" Click="Revenue_Click" >Thông tin tài khoản</Button>
+        <Button Canvas.Left="315" Canvas.Top="345" Name="Revenue" Click="Revenue_Click" >Thống kê doanh thu</Button>
     </Canvas>
 </UserControl>

@@ -29,22 +29,41 @@ namespace CHUYENHANGONLINE.Provider
 
         private void SignUp_Click(object sender, RoutedEventArgs e)
         {
+            //Check thông tin
+            if (string.IsNullOrWhiteSpace(TaxCodeTextBox.Text) || string.IsNullOrWhiteSpace(AddressTextBox.Text)
+                || string.IsNullOrWhiteSpace(NameTextBox.Text) || string.IsNullOrWhiteSpace(PhoneTextBox.Text)
+                || string.IsNullOrWhiteSpace(RepresentTextBox.Text) || string.IsNullOrWhiteSpace(CityTextBox.Text)
+                || string.IsNullOrWhiteSpace(DistrictTextBox.Text) || string.IsNullOrWhiteSpace(EmailTextBox.Text))
+            {
+                MessageBox.Show("Vui lòng nhập đầy đủ thông tin");
+                return;
+            }
+
             //Lấy thông tin đăng kí từ màn hình xuống
             string MST = TaxCodeTextBox.Text;
-	        string DIACHI = AddressTextBox.Text;
+            string DIACHI = AddressTextBox.Text;
             string TEN = NameTextBox.Text;
             string SDT = PhoneTextBox.Text;
             string NGUOIDAIDIEN = RepresentTextBox.Text;
             string THANHPHO = CityTextBox.Text;
             string QUAN = DistrictTextBox.Text;
             string EMAIL = EmailTextBox.Text;
-            int SODONMOINGAY = Convert.ToInt32(OrderCountTextBox.Text);
             string LOAIHANG = ProductTypeTextBox.Text;
-            int SOCHINHANH = Convert.ToInt32(DepartAmountTextBox.Text);
             string TENDANGNHAP = UserNameTextBox.Text;
             string MATKHAU = PasswordTextBox.Text;
+            int SOCHINHANH;
+            int SODONMOINGAY;
 
-            MessageBox.Show($"{MST},{DIACHI},{TEN},{SDT},{NGUOIDAIDIEN},{THANHPHO},{QUAN},{EMAIL},{SODONMOINGAY},{SODONMOINGAY},{SOCHINHANH},{TENDANGNHAP},{MATKHAU}");
+            if (!int.TryParse(DepartAmountTextBox.Text, out SOCHINHANH))
+            {
+                MessageBox.Show($"Số chi nhánh phải là số");
+                return;
+            }
+            if (!int.TryParse(OrderCountTextBox.Text, out SODONMOINGAY))
+            {
+                MessageBox.Show($"Số đơn mỗi ngày phải là số");
+                return;
+            }
 
             //create query for stored procedure
             SqlCommand sqlCmd = new SqlCommand($"USP_DANGKITAIKHOAN_DOITAC", MainWindow.sqlCon);
