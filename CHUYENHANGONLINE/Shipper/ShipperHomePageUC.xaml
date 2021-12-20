@@ -8,7 +8,7 @@
              d:DesignHeight="450" d:DesignWidth="800" Loaded="ShipperHomePageUC_OnLoaded">
     <Canvas>
         <Label Name="HelloLabel" FontSize="20" Foreground="GhostWhite" Background="CadetBlue" Width="800">Xin chào</Label>
-        <Button Canvas.Left="693" Background="DarkRed" Canvas.Top="1">Đăng xuất</Button>
+        <Button Name="SignoutBtn" Canvas.Left="693" Background="DarkRed" Canvas.Top="1" Click="SignoutBtn_Click">Đăng xuất</Button>
         <Button Canvas.Left="492" Canvas.Top="1" Click="ButtonBase_OnClick">Thông tin tài khoản</Button>
 
         <Button Canvas.Left="272" Canvas.Top="162" Click="ShowOrderListButton_Click">Danh sách đơn hàng trong khu vực</Button>

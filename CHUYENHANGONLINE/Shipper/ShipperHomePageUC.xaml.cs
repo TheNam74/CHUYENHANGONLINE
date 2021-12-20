@@ -48,5 +48,10 @@ namespace CHUYENHANGONLINE.Shipper
             shippePickedOrderListWindow.Show();
         }
 
+        private void SignoutBtn_Click(object sender, RoutedEventArgs e)
+        {
+            System.Diagnostics.Process.Start(Application.ResourceAssembly.Location);
+            Application.Current.Shutdown();
+        }
     }
 }

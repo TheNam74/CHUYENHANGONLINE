@@ -55,6 +55,10 @@ namespace CHUYENHANGONLINE.Shipper
             
             while (reader.Read())
             {
+                if (reader.GetString(5)=="chưa duyệt")
+                {
+                    continue;
+                }
                 Order order = new Order
                 {
                     OrdID = reader.GetInt32(0),
