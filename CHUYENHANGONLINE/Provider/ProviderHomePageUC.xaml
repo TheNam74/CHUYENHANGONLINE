@@ -9,9 +9,10 @@
     <Canvas>
         <Label Name="HelloLabel" FontSize="20" Foreground="GhostWhite" Background="CadetBlue" Width="800">Xin chào</Label>
         <Button Canvas.Left="693" Background="DarkRed" Canvas.Top="1" Click="BtnLogout_OnClick">Đăng xuất</Button>
-        <Button Canvas.Left="310" Canvas.Top="92" Name="BranchList" Click="BranchList_Click">Danh sách chi nhánh</Button>
-        <Button Canvas.Left="310" Canvas.Top="165" Name="ProductList" Click="ProductList_Click">Danh sách Sản phẩm</Button>
-        <Button Canvas.Left="310" Canvas.Top="238" Name="OrderList" Click="OrderList_Click">Danh sách đơn hàng</Button>
-        <Button Canvas.Left="312" Canvas.Top="325" Name="ProviderDetails" Click="ProviderDetails_Click">Thông tin tài khoản</Button>
+        <Button Canvas.Left="313" Canvas.Top="72" Name="BranchList" Click="BranchList_Click">Danh sách chi nhánh</Button>
+        <Button Canvas.Left="310" Canvas.Top="139" Name="ProductList" Click="ProductList_Click">Danh sách Sản phẩm</Button>
+        <Button Canvas.Left="310" Canvas.Top="215" Name="OrderList" Click="OrderList_Click">Danh sách đơn hàng</Button>
+        <Button Canvas.Left="312" Canvas.Top="288" Name="ProviderDetails" Click="ProviderDetails_Click">Thông tin tài khoản</Button>
+        <Button Canvas.Left="315" Canvas.Top="345" Name="Revenue" Click="Revenue_Click" >Thống kê doanh thu</Button>
     </Canvas>
 </UserControl>
