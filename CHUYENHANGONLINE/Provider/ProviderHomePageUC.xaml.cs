@@ -62,8 +62,8 @@ namespace CHUYENHANGONLINE.Provider
 
         private void Revenue_Click(object sender, RoutedEventArgs e)
         {
-            var revenueWindow = new RevenueWindow();
-            revenueWindow.Show();
+            //var revenueWindow = new RevenueWindow();
+            //revenueWindow.Show();
         }
     }
 }
