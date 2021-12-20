@@ -45,6 +45,32 @@ namespace CHUYENHANGONLINE.Provider
         }
         private void ApplyChange_Click(object sender, RoutedEventArgs e)
         {
+            //Check thông tin
+            if (string.IsNullOrWhiteSpace(NewProName.Text)
+                || string.IsNullOrWhiteSpace(NewProInfo.Text)
+                || string.IsNullOrWhiteSpace(NewProUnit.Text))
+            {
+                MessageBox.Show("Vui lòng nhập đầy đủ thông tin");
+                return;
+            }
+
+            string TENSANPHAM = NewProName.Text;
+            string THONGTIN = NewProInfo.Text;
+            string DONVITINH = NewProUnit.Text;
+            float DONGIA;
+            int SOLUONG;
+
+            if (!float.TryParse(NewProPrice.Text, out DONGIA))
+            {
+                MessageBox.Show($"Đơn giá phải là số");
+                return;
+            }
+            if (!int.TryParse(NewProAmount.Text, out SOLUONG))
+            {
+                MessageBox.Show($"Số lượng phải là số");
+                return;
+            }
+
             //create query for stored procedure
             SqlCommand sqlCmd = new SqlCommand($"USP_SUASANPHAM_DOITAC", MainWindow.sqlCon);
             sqlCmd.CommandType = CommandType.StoredProcedure;
@@ -53,11 +79,11 @@ namespace CHUYENHANGONLINE.Provider
             sqlCmd.Parameters.Add(new SqlParameter("@MADT", _product.ProviderID));
             sqlCmd.Parameters.Add(new SqlParameter("@MACN", _product.BranchID));
             sqlCmd.Parameters.Add(new SqlParameter("@MASP", _product.ProID));
-            sqlCmd.Parameters.Add(new SqlParameter("@TENSANPHAM", NewProName.Text));
-            sqlCmd.Parameters.Add(new SqlParameter("@THONGTIN", NewProInfo.Text));
-            sqlCmd.Parameters.Add(new SqlParameter("@DONGIA", (float)Convert.ToDouble(NewProPrice.Text)));
-            sqlCmd.Parameters.Add(new SqlParameter("@DONVITINH", NewProUnit.Text));
-            sqlCmd.Parameters.Add(new SqlParameter("SOLUONG", Convert.ToInt32(NewProAmount.Text)));
+            sqlCmd.Parameters.Add(new SqlParameter("@TENSANPHAM", TENSANPHAM));
+            sqlCmd.Parameters.Add(new SqlParameter("@THONGTIN", THONGTIN));
+            sqlCmd.Parameters.Add(new SqlParameter("@DONGIA", DONGIA));
+            sqlCmd.Parameters.Add(new SqlParameter("@DONVITINH", DONVITINH));
+            sqlCmd.Parameters.Add(new SqlParameter("@SOLUONG", SOLUONG));
 
             //execute query
             int ret = sqlCmd.ExecuteNonQuery();

@@ -36,12 +36,32 @@ namespace CHUYENHANGONLINE.Provider
 
         private void AddProduct_Click(object sender, RoutedEventArgs e)
         {
-            //Lấy thông tin từ các textbox trên màn hình thêm sản phẩm
+            //Check thông tin
+            if (string.IsNullOrWhiteSpace(NewProName.Text)
+                || string.IsNullOrWhiteSpace(NewProInfo.Text)
+                || string.IsNullOrWhiteSpace(NewProUnit.Text))
+            {
+                MessageBox.Show("Vui lòng nhập đầy đủ thông tin");
+                return;
+            }
+
             string TENSANPHAM = NewProName.Text;
             string THONGTIN = NewProInfo.Text;
-            float DONGIA = (float)Convert.ToDouble(NewProPrice.Text);
             string DONVITINH = NewProUnit.Text;
-            int SOLUONG = Convert.ToInt32(NewProName.Text);
+            float DONGIA;
+            int SOLUONG;
+
+            if (!float.TryParse(NewProPrice.Text, out DONGIA))
+            {
+                MessageBox.Show($"Đơn giá phải là số");
+                return;
+            }
+            if (!int.TryParse(NewProAmount.Text, out SOLUONG))
+            {
+                MessageBox.Show($"Số lượng phải là số");
+                return;
+            }
+
 
             //create query for stored procedure
             SqlCommand sqlCmd = new SqlCommand($"USP_THEMSANPHAM_DOITAC", MainWindow.sqlCon);

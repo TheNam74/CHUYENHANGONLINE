@@ -59,5 +59,11 @@ namespace CHUYENHANGONLINE.Provider
             var providerDetailsWindow = new ProviderDetailsWindow();
             providerDetailsWindow.Show();
         }
+
+        private void Revenue_Click(object sender, RoutedEventArgs e)
+        {
+            var revenueWindow = new RevenueWindow();
+            revenueWindow.Show();
+        }
     }
 }

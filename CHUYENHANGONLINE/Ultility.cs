@@ -25,5 +25,12 @@ namespace CHUYENHANGONLINE
             return null;
         }
 
+        public static float? SafeGetFloat(this SqlDataReader reader, int colIndex)
+        {
+            if (!reader.IsDBNull(colIndex))
+                return reader.GetFloat(colIndex);
+            return 0;
+        }
+
     }
 }
