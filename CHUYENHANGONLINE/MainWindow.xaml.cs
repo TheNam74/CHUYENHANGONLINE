@@ -2,6 +2,19 @@
 using System.Data;
 using System.Data.SqlClient;
 
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
+
 using System.Windows;
 
 using CHUYENHANGONLINE.Admin;
@@ -17,8 +30,9 @@ namespace CHUYENHANGONLINE
     /// </summary>
     public partial class MainWindow : Window
     {
-        string strCon =
-                @"Data Source=DEONE\SQLEXPRESS;Initial Catalog = QL_CHUYENHANGONLINE; Integrated Security = True";
+        string ServerName = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
+        string strCon = 
+                @"Data Source=DESKTOP-IF5CCEF\PC1;Initial Catalog = QL_CHUYENHANGONLINE; Integrated Security = True";
         public static SqlConnection sqlCon = null; //cho tất cả window khác xài ké
         public static string Actor;
         public static IUser User;
