@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="ProviderProductListWindow" Height="450" Width="800" Loaded="ProviderProductList_OnLoaded">
     <Grid>
-        <ListView x:Name="ProductListView" >
+        <ListView x:Name="ProductListView" SelectionChanged="ProductListView_SelectionChanged" >
 
             <Style TargetType="{x:Type ListView}" BasedOn="{StaticResource MaterialDesignListView}" ></Style>
             <!--Cài context menu để chuột phải ở đây-->
@@ -18,12 +18,12 @@
             </ListView.Resources>
             <ListView.View >
                 <GridView>
-                    <GridViewColumn Header="Chi nhánh"      Width="130" DisplayMemberBinding="{Binding BranchID}" />
-                    <GridViewColumn Header="Mã sản phẩm"    Width="110" DisplayMemberBinding="{Binding ProID}"/>
+                    <GridViewColumn Header="Chi nhánh"      Width="125" DisplayMemberBinding="{Binding BranchID}" />
+                    <GridViewColumn Header="Mã sản phẩm"    Width="145" DisplayMemberBinding="{Binding ProID}"/>
                     <GridViewColumn Header="Tên"            Width="120" DisplayMemberBinding="{Binding ProName}" />
                     <GridViewColumn Header="Thông tin"      Width="180" DisplayMemberBinding="{Binding ProInfo}"/>
-                    <GridViewColumn Header="Giá"            Width="150" DisplayMemberBinding="{Binding ProPrice}"/>
-                    <GridViewColumn Header="Đơn vị"         Width="130" DisplayMemberBinding="{Binding ProUnit}"/>
+                    <GridViewColumn Header="Giá"            Width="100" DisplayMemberBinding="{Binding ProPrice}"/>
+                    <GridViewColumn Header="Đơn vị"         Width="110" DisplayMemberBinding="{Binding ProUnit}"/>
                     <GridViewColumn Header="Tồn kho"        Width="150" DisplayMemberBinding="{Binding ProAmount}"/>
                     <GridViewColumn Header="Đã bán"         Width="150" DisplayMemberBinding="{Binding BuyingAmount}"/>
                 </GridView>

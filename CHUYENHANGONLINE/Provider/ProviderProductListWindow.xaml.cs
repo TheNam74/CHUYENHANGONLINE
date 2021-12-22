@@ -90,5 +90,9 @@ namespace CHUYENHANGONLINE.Provider
             ProductListView.ItemsSource = _productList;
         }
 
+        private void ProductListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }
